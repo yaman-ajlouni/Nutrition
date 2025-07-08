@@ -1,0 +1,520 @@
+@import '../../../assets/styles/vars.scss';
+
+.how-it-works {
+    padding: 6rem 0;
+    background: $white;
+    position: relative;
+
+    .how-it-works-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    // Section Header
+    .section-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 4rem;
+
+        .section-badge {
+            display: inline-block;
+            background: $primary-green-light;
+            color: $primary-color;
+            padding: 0.5rem 1rem;
+            border-radius: $radius-full;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: $text-dark;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+
+            @media (max-width: 768px) {
+                font-size: 2.25rem;
+            }
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: $text-light;
+            line-height: 1.6;
+
+            @media (max-width: 768px) {
+                font-size: 1.1rem;
+            }
+        }
+    }
+
+    // Steps Grid
+    .steps-grid {
+        position: relative;
+        display: grid;
+        gap: 3rem;
+        margin-bottom: 6rem;
+
+        @media (min-width: 768px) {
+            gap: 4rem;
+        }
+    }
+
+    .step-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 2rem;
+        align-items: center;
+        position: relative;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.6s ease-out forwards;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 1.5rem;
+        }
+
+        &:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        &:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        &:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        &:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        &.right {
+            @media (min-width: 768px) {
+                grid-template-columns: 1fr auto;
+                direction: rtl;
+
+                .step-content {
+                    direction: ltr;
+                    text-align: right;
+                }
+            }
+        }
+
+        .step-number {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 40px;
+            height: 40px;
+            background: $primary-color;
+            color: $white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: $shadow-lg;
+            z-index: 2;
+
+            @media (max-width: 768px) {
+                position: static;
+                margin: 0 auto 1rem;
+            }
+
+            .right & {
+                @media (min-width: 768px) {
+                    left: auto;
+                    right: -10px;
+                }
+            }
+        }
+
+        .step-icon {
+            width: 120px;
+            height: 120px;
+            background: $white;
+            border: 3px solid $primary-green-light;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $primary-color;
+            box-shadow: $shadow-md;
+            transition: $transition-all;
+            position: relative;
+
+            @media (max-width: 768px) {
+                width: 100px;
+                height: 100px;
+                margin: 0 auto;
+            }
+
+            svg {
+                width: 40px;
+                height: 40px;
+                stroke-width: 2;
+            }
+
+            &:hover {
+                transform: scale(1.05);
+                border-color: $primary-color;
+                box-shadow: $shadow-lg;
+            }
+        }
+
+        .step-content {
+            .step-title {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: $text-dark;
+                margin-bottom: 1rem;
+
+                @media (max-width: 768px) {
+                    font-size: 1.25rem;
+                }
+            }
+
+            .step-description {
+                font-size: 1.1rem;
+                color: $text-light;
+                line-height: 1.6;
+                max-width: 400px;
+
+                .right & {
+                    @media (min-width: 768px) {
+                        margin-left: auto;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    font-size: 1rem;
+                    max-width: none;
+                }
+            }
+        }
+
+        // Connector between steps
+        .step-connector {
+            position: absolute;
+            bottom: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1;
+
+            @media (max-width: 768px) {
+                bottom: -1.5rem;
+            }
+
+            .connector-line {
+                width: 2px;
+                height: 40px;
+                background: linear-gradient(to bottom, $primary-color, $primary-green-light);
+
+                @media (max-width: 768px) {
+                    height: 30px;
+                }
+            }
+
+            .connector-arrow {
+                width: 30px;
+                height: 30px;
+                background: $primary-color;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $white;
+                margin-top: 10px;
+                animation: bounce 2s infinite;
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+                    stroke-width: 2;
+                }
+            }
+        }
+
+        &:last-child .step-connector {
+            display: none;
+        }
+    }
+
+    // Bottom CTA Section
+    .section-cta {
+        background: linear-gradient(135deg, $gray-50 0%, $white 100%);
+        border-radius: $radius-xl;
+        padding: 4rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+
+        @media (max-width: 1024px) {
+            grid-template-columns: 1fr;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        @media (max-width: 768px) {
+            padding: 2rem 1.5rem;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+    }
+
+    .cta-content {
+        .cta-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: $text-dark;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+
+            @media (max-width: 768px) {
+                font-size: 1.75rem;
+            }
+        }
+
+        .cta-description {
+            font-size: 1.1rem;
+            color: $text-light;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary {
+                background: $primary-color;
+                color: $white;
+                border: none;
+                padding: 1rem 2rem;
+                border-radius: $radius-lg;
+                font-weight: 600;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: $transition-all;
+                box-shadow: $shadow-md;
+
+                &:hover {
+                    background: $primary-green-hover;
+                    transform: translateY(-2px);
+                    box-shadow: $shadow-lg;
+                }
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                }
+            }
+
+            .btn-outline {
+                background: transparent;
+                color: $text-dark;
+                border: 2px solid $gray-300;
+                padding: 1rem 2rem;
+                border-radius: $radius-lg;
+                font-weight: 600;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: $transition-all;
+
+                &:hover {
+                    border-color: $primary-color;
+                    color: $primary-color;
+                    transform: translateY(-1px);
+                }
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .cta-visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        @media (max-width: 1024px) {
+            margin-top: 2rem;
+        }
+    }
+
+    .visual-elements {
+        position: relative;
+        width: 300px;
+        height: 300px;
+
+        @media (max-width: 768px) {
+            width: 250px;
+            height: 250px;
+        }
+
+        .element {
+            position: absolute;
+            background: $white;
+            border-radius: $radius-xl;
+            padding: 1.5rem;
+            box-shadow: $shadow-lg;
+            border: 1px solid $gray-200;
+            transition: $transition-all;
+
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: $shadow-xl;
+            }
+
+            &.element-1 {
+                top: 0;
+                left: 0;
+                animation: float 6s ease-in-out infinite;
+            }
+
+            &.element-2 {
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                animation: float 4s ease-in-out infinite reverse;
+            }
+
+            &.element-3 {
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                animation: float 5s ease-in-out infinite;
+            }
+
+            .element-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 0.75rem;
+
+                .element-icon {
+                    width: 40px;
+                    height: 40px;
+                    color: $primary-color;
+
+                    svg {
+                        width: 100%;
+                        height: 100%;
+                        stroke-width: 2;
+                    }
+                }
+
+                span {
+                    font-size: 0.9rem;
+                    font-weight: 600;
+                    color: $text-dark;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+}
+
+// Animations
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-5px);
+    }
+
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+// Additional responsive adjustments
+@media (max-width: 480px) {
+    .how-it-works {
+        padding: 4rem 0;
+
+        .how-it-works-container {
+            padding: 0 1rem;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .steps-grid {
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .step-card {
+            .step-icon {
+                width: 80px;
+                height: 80px;
+
+                svg {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+    }
+}
