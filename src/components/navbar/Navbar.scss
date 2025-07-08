@@ -1,0 +1,289 @@
+@import '../../assets/styles/vars.scss';
+
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid $gray-200;
+    z-index: 1000;
+    transition: $transition-all;
+
+    &.scrolled {
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: $shadow-md;
+        padding: 0.75rem 0;
+
+        .nav-container {
+            padding: 0 2rem;
+        }
+    }
+
+    .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 2rem;
+        transition: $transition-all;
+    }
+
+    // Logo Section
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+
+        .logo-image {
+            height: 60px;
+            width: auto;
+        }
+    }
+
+    // Desktop Menu
+    .nav-menu {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        @media (max-width: 1024px) {
+            display: none;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: $text-dark;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            transition: $transition-all;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: $primary-color;
+                transition: $transition-all;
+            }
+
+            &:hover {
+                color: $primary-color;
+
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    // CTA Button
+    .nav-cta {
+        @media (max-width: 1024px) {
+            display: none;
+        }
+    }
+
+    .btn-primary {
+        background: $primary-color;
+        color: $white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: $radius-md;
+        font-weight: 600;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: $transition-all;
+        box-shadow: $shadow-sm;
+
+        &:hover {
+            background: $primary-green-hover;
+            transform: translateY(-1px);
+            box-shadow: $shadow-md;
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+    }
+
+    // Mobile Menu Button
+    .mobile-menu-btn {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+
+        @media (max-width: 1024px) {
+            display: flex;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 2px;
+            background: $text-dark;
+            margin: 3px 0;
+            transition: $transition-all;
+            transform-origin: center;
+        }
+
+        &.active {
+            .hamburger-line {
+                &:nth-child(1) {
+                    transform: rotate(45deg) translate(5px, 5px);
+                }
+
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+
+                &:nth-child(3) {
+                    transform: rotate(-45deg) translate(7px, -6px);
+                }
+            }
+        }
+    }
+
+    // Mobile Menu Overlay
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: $transition-all;
+        z-index: 999;
+
+        @media (min-width: 1025px) {
+            display: none;
+        }
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu-content {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 80%;
+            max-width: 400px;
+            height: 100%;
+            background: $white;
+            padding: 2rem;
+            transform: translateX(100%);
+            transition: $transition-all;
+            box-shadow: $shadow-xl;
+            overflow-y: auto;
+        }
+
+        &.active .mobile-menu-content {
+            transform: translateX(0);
+        }
+    }
+
+    // Mobile Menu Items
+    .mobile-nav-menu {
+        list-style: none;
+        padding: 0;
+        margin: 4rem 0 2rem 0;
+
+        .mobile-nav-item {
+            margin-bottom: 1rem;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            color: $text-dark;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 1rem 0;
+            border-bottom: 1px solid $gray-100;
+            transition: $transition-all;
+
+            &:hover {
+                color: $primary-color;
+                padding-left: 0.5rem;
+            }
+        }
+    }
+
+    .mobile-cta {
+        margin-top: 2rem;
+
+        .btn-primary {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+}
+
+// Page offset for fixed navigation
+body {
+    padding-top: 80px;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    .navigation {
+        .nav-container {
+            padding: 1rem;
+        }
+
+        .nav-logo {
+            .logo-image {
+                height: 35px;
+            }
+
+            .logo-text {
+                font-size: 1.25rem;
+            }
+        }
+    }
+
+    body {
+        padding-top: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navigation {
+        .mobile-menu .mobile-menu-content {
+            width: 90%;
+            padding: 1.5rem;
+        }
+
+        .nav-container {
+            padding: 0.75rem;
+        }
+    }
+
+    body {
+        padding-top: 65px;
+    }
+}
