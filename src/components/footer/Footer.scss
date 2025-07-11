@@ -1,0 +1,412 @@
+@import '../../assets/styles/vars.scss';
+
+.footer {
+    background: linear-gradient(180deg, $gray-100 0%, $gray-200 100%);
+    padding: 4rem 0 0;
+    color: $text-dark;
+
+    .footer-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    // Main Footer Content
+    .footer-main {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1.5fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+
+        @media (max-width: 1024px) {
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 480px) {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+
+    .footer-section {
+        h3.footer-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: $text-dark;
+            margin-bottom: 1.5rem;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -0.5rem;
+                left: 0;
+                width: 30px;
+                height: 2px;
+                background: $primary-color;
+            }
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin-bottom: 0.75rem;
+
+                a {
+                    color: $text-light;
+                    text-decoration: none;
+                    font-weight: 500;
+                    font-size: 0.95rem;
+                    transition: $transition-all;
+                    position: relative;
+
+                    &:hover {
+                        color: $primary-color;
+                        padding-left: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    // Company Section
+    .company-section {
+        @media (max-width: 768px) {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+
+            @media (max-width: 768px) {
+                justify-content: center;
+            }
+
+            .logo-image {
+                height: 50px;
+                width: auto;
+            }
+        }
+
+        .company-description {
+            color: $text-light;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            max-width: 280px;
+
+            @media (max-width: 768px) {
+                max-width: none;
+            }
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+
+            @media (max-width: 768px) {
+                justify-content: center;
+            }
+
+            .social-link {
+                width: 40px;
+                height: 40px;
+                background: $white;
+                border: 1px solid $gray-300;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $text-light;
+                transition: $transition-all;
+                box-shadow: $shadow-sm;
+
+                svg {
+                    width: 18px;
+                    height: 18px;
+                }
+
+                &:hover {
+                    background: $primary-color;
+                    color: $white;
+                    border-color: $primary-color;
+                    transform: translateY(-2px);
+                    box-shadow: $shadow-md;
+                }
+            }
+        }
+    }
+
+    // Newsletter Section
+    .newsletter-section {
+        @media (max-width: 1024px) {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .newsletter-description {
+            color: $text-light;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .newsletter-form {
+            margin-bottom: 2rem;
+
+            .input-group {
+                display: flex;
+                border-radius: $radius-lg;
+                overflow: hidden;
+                box-shadow: $shadow-sm;
+                border: 1px solid $gray-300;
+                background: $white;
+
+                .newsletter-input {
+                    flex: 1;
+                    padding: 0.875rem 1rem;
+                    border: none;
+                    font-size: 0.95rem;
+                    background: transparent;
+
+                    &:focus {
+                        outline: none;
+                    }
+
+                    &::placeholder {
+                        color: $text-light;
+                    }
+                }
+
+                .newsletter-button {
+                    background: $primary-color;
+                    color: $white;
+                    border: none;
+                    padding: 0.875rem 1rem;
+                    cursor: pointer;
+                    transition: $transition-all;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    svg {
+                        width: 18px;
+                        height: 18px;
+                        stroke-width: 2;
+                    }
+
+                    &:hover {
+                        background: $primary-green-hover;
+                    }
+                }
+            }
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 1rem;
+
+            @media (max-width: 768px) {
+                justify-content: center;
+            }
+
+            @media (max-width: 480px) {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .trust-badge {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                color: $text-light;
+                font-size: 0.85rem;
+                font-weight: 500;
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+                    color: $primary-color;
+                    stroke-width: 2;
+                }
+            }
+        }
+    }
+
+    // Footer Bottom
+    .footer-bottom {
+        border-top: 1px solid $gray-300;
+        padding: 2rem 0.5rem;
+        background: rgba(255, 255, 255, 0.5);
+
+        .footer-bottom-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .copyright {
+                p {
+                    color: $text-light;
+                    font-size: 0.9rem;
+                    margin: 0;
+                }
+            }
+
+            .legal-links {
+                display: flex;
+                gap: 2rem;
+                flex-wrap: wrap;
+
+                @media (max-width: 768px) {
+                    justify-content: center;
+                }
+
+                @media (max-width: 480px) {
+                    gap: 1rem;
+                }
+
+                a {
+                    color: $text-light;
+                    text-decoration: none;
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    transition: $transition-all;
+
+                    &:hover {
+                        color: $primary-color;
+                    }
+                }
+            }
+
+            .certification {
+                .cert-text {
+                    background: $primary-green-light;
+                    color: $primary-color;
+                    padding: 0.25rem 0.75rem;
+                    border-radius: $radius-sm;
+                    font-size: 0.8rem;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                }
+            }
+        }
+    }
+}
+
+// Additional responsive adjustments
+@media (max-width: 480px) {
+    .footer {
+        padding: 3rem 0 0;
+
+        .footer-container {
+            padding: 0 1rem;
+        }
+
+        .footer-main {
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section {
+            h3.footer-title {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .footer-links li {
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        .company-section {
+            .footer-logo {
+                .logo-image {
+                    height: 50px;
+                }
+            }
+
+            .company-description {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .social-links {
+                .social-link {
+                    width: 35px;
+                    height: 35px;
+
+                    svg {
+                        width: 16px;
+                        height: 16px;
+                    }
+                }
+            }
+        }
+
+        .newsletter-section {
+            .newsletter-form .input-group {
+
+                .newsletter-input,
+                .newsletter-button {
+                    padding: 0.75rem;
+                }
+            }
+
+            .trust-badges .trust-badge {
+                font-size: 0.8rem;
+
+                svg {
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+        }
+
+        .footer-bottom {
+            padding: 1.5rem 0;
+
+            .footer-bottom-content {
+                gap: 1rem;
+
+                .legal-links {
+                    gap: 0.75rem;
+                    flex-direction: column;
+
+                    a {
+                        font-size: 0.85rem;
+                    }
+                }
+
+                .certification .cert-text {
+                    font-size: 0.75rem;
+                    padding: 0.2rem 0.5rem;
+                }
+            }
+        }
+    }
+}

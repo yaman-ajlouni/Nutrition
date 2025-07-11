@@ -38,10 +38,10 @@ const Navbar = () => {
                         <a href="#home" className="nav-link">Home</a>
                     </li>
                     <li className="nav-item">
-                        <a href="#calculator" className="nav-link">Nutrition Calculator</a>
+                        <a href="#calculator" className="nav-link">Calculator</a>
                     </li>
                     <li className="nav-item">
-                        <a href="#database" className="nav-link">Ingredient Database</a>
+                        <a href="#database" className="nav-link">Database</a>
                     </li>
                     <li className="nav-item">
                         <a href="#reports" className="nav-link">Reports</a>

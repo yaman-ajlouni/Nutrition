@@ -76,9 +76,9 @@ const HowItWorks = () => {
                 {/* Steps Grid */}
                 <div className="steps-grid">
                     {steps.map((step, index) => (
-                        <div key={step.id} className={`step-card ${index % 2 === 0 ? 'left' : 'right'}`}>
+                        <div key={step.id} className="step-card">
                             <div className="step-number">
-                                <span>{step.id}</span>
+                                {step.id}
                             </div>
 
                             <div className="step-icon">
@@ -90,16 +90,13 @@ const HowItWorks = () => {
                                 <p className="step-description">{step.description}</p>
                             </div>
 
-                            {/* Connector Line */}
+                            {/* Connector Arrow */}
                             {index < steps.length - 1 && (
-                                <div className="step-connector">
-                                    <div className="connector-line"></div>
-                                    <div className="connector-arrow">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                            <path d="M5 12h14" />
-                                            <path d="M12 5l7 7-7 7" />
-                                        </svg>
-                                    </div>
+                                <div className="step-arrow">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M5 12h14" />
+                                        <path d="M12 5l7 7-7 7" />
+                                    </svg>
                                 </div>
                             )}
                         </div>
@@ -120,45 +117,6 @@ const HowItWorks = () => {
                             <button className="btn-outline">
                                 Schedule Demo
                             </button>
-                        </div>
-                    </div>
-
-                    <div className="cta-visual">
-                        <div className="visual-elements">
-                            <div className="element element-1">
-                                <div className="element-content">
-                                    <div className="element-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                            <path d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4" />
-                                            <path d="M9 11V7a3 3 0 0 1 6 0v4" />
-                                        </svg>
-                                    </div>
-                                    <span>FDA Approved</span>
-                                </div>
-                            </div>
-
-                            <div className="element element-2">
-                                <div className="element-content">
-                                    <div className="element-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                        </svg>
-                                    </div>
-                                    <span>Instant Results</span>
-                                </div>
-                            </div>
-
-                            <div className="element element-3">
-                                <div className="element-content">
-                                    <div className="element-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                            <circle cx="12" cy="12" r="3" />
-                                            <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" />
-                                        </svg>
-                                    </div>
-                                    <span>High Precision</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

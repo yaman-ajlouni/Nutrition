@@ -204,43 +204,7 @@ const Pricing = () => {
                     </div>
                 </div>
 
-                {/* FAQ Section */}
-                <div className="pricing-faq">
-                    <h3 className="faq-title">Frequently Asked Questions</h3>
-                    <div className="faq-grid">
-                        <div className="faq-item">
-                            <h4 className="faq-question">Can I change plans anytime?</h4>
-                            <p className="faq-answer">
-                                Yes, you can upgrade or downgrade your plan at any time.
-                                Changes take effect immediately and billing is prorated.
-                            </p>
-                        </div>
 
-                        <div className="faq-item">
-                            <h4 className="faq-question">Is there a setup fee?</h4>
-                            <p className="faq-answer">
-                                No setup fees for any plan. Start your 14-day free trial
-                                immediately and begin calculating nutrition facts right away.
-                            </p>
-                        </div>
-
-                        <div className="faq-item">
-                            <h4 className="faq-question">What payment methods do you accept?</h4>
-                            <p className="faq-answer">
-                                We accept all major credit cards, PayPal, and ACH transfers
-                                for Enterprise customers. All payments are processed securely.
-                            </p>
-                        </div>
-
-                        <div className="faq-item">
-                            <h4 className="faq-question">Do you offer custom enterprise solutions?</h4>
-                            <p className="faq-answer">
-                                Yes, we work with large manufacturers to create custom solutions
-                                including API integrations, white-label options, and dedicated support.
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
                 {/* Bottom CTA */}
                 <div className="pricing-cta">

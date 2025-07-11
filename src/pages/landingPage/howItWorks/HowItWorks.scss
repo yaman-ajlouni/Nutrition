@@ -2,11 +2,11 @@
 
 .how-it-works {
     padding: 6rem 0;
-    background: $white;
+    background: linear-gradient(180deg, $gray-50 0%, $white 100%);
     position: relative;
 
     .how-it-works-container {
-        max-width: 1400px;
+        max-width: 1200px;
         margin: 0 auto;
         padding: 0 2rem;
     }
@@ -55,66 +55,56 @@
 
     // Steps Grid
     .steps-grid {
-        position: relative;
         display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 3rem;
-        margin-bottom: 6rem;
+        margin-bottom: 4rem;
+        position: relative;
 
-        @media (min-width: 768px) {
-            gap: 4rem;
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        // Desktop: horizontal arrows between cards
+        @media (min-width: 769px) {
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background: linear-gradient(90deg, transparent 15%, $primary-green-light 15%, $primary-green-light 85%, transparent 85%);
+                z-index: 0;
+                pointer-events: none;
+            }
         }
     }
 
     .step-card {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 2rem;
-        align-items: center;
+        background: $white;
+        border-radius: $radius-xl;
+        padding: 2.5rem 2rem;
+        text-align: center;
+        border: 2px solid $gray-200;
+        transition: $transition-all;
         position: relative;
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 0.6s ease-out forwards;
+        z-index: 1;
 
-        @media (max-width: 768px) {
-            grid-template-columns: 1fr;
-            text-align: center;
-            gap: 1.5rem;
-        }
-
-        &:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        &:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        &:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        &:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-
-        &.right {
-            @media (min-width: 768px) {
-                grid-template-columns: 1fr auto;
-                direction: rtl;
-
-                .step-content {
-                    direction: ltr;
-                    text-align: right;
-                }
-            }
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: $shadow-xl;
+            border-color: $primary-green-light;
         }
 
         .step-number {
             position: absolute;
-            top: -10px;
-            left: -10px;
-            width: 40px;
-            height: 40px;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 35px;
+            height: 35px;
             background: $primary-color;
             color: $white;
             border-radius: 50%;
@@ -122,368 +112,176 @@
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: $shadow-lg;
+            font-size: 1rem;
+            box-shadow: $shadow-md;
             z-index: 2;
-
-            @media (max-width: 768px) {
-                position: static;
-                margin: 0 auto 1rem;
-            }
-
-            .right & {
-                @media (min-width: 768px) {
-                    left: auto;
-                    right: -10px;
-                }
-            }
         }
 
         .step-icon {
-            width: 120px;
-            height: 120px;
-            background: $white;
-            border: 3px solid $primary-green-light;
+            width: 80px;
+            height: 80px;
+            background: $primary-green-light;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: $primary-color;
-            box-shadow: $shadow-md;
+            margin: 1rem auto 1.5rem;
             transition: $transition-all;
-            position: relative;
-
-            @media (max-width: 768px) {
-                width: 100px;
-                height: 100px;
-                margin: 0 auto;
-            }
 
             svg {
-                width: 40px;
-                height: 40px;
+                width: 35px;
+                height: 35px;
                 stroke-width: 2;
-            }
-
-            &:hover {
-                transform: scale(1.05);
-                border-color: $primary-color;
-                box-shadow: $shadow-lg;
             }
         }
 
         .step-content {
             .step-title {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
                 font-weight: 700;
                 color: $text-dark;
                 margin-bottom: 1rem;
-
-                @media (max-width: 768px) {
-                    font-size: 1.25rem;
-                }
+                line-height: 1.3;
             }
 
             .step-description {
-                font-size: 1.1rem;
+                font-size: 1rem;
                 color: $text-light;
                 line-height: 1.6;
-                max-width: 400px;
-
-                .right & {
-                    @media (min-width: 768px) {
-                        margin-left: auto;
-                    }
-                }
-
-                @media (max-width: 768px) {
-                    font-size: 1rem;
-                    max-width: none;
-                }
             }
         }
 
-        // Connector between steps
-        .step-connector {
-            position: absolute;
-            bottom: -2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 1;
+        // Mobile: arrows below each card
+        .step-arrow {
+            display: none;
 
             @media (max-width: 768px) {
-                bottom: -1.5rem;
-            }
-
-            .connector-line {
-                width: 2px;
-                height: 40px;
-                background: linear-gradient(to bottom, $primary-color, $primary-green-light);
-
-                @media (max-width: 768px) {
-                    height: 30px;
-                }
-            }
-
-            .connector-arrow {
-                width: 30px;
-                height: 30px;
-                background: $primary-color;
-                border-radius: 50%;
                 display: flex;
-                align-items: center;
                 justify-content: center;
-                color: $white;
-                margin-top: 10px;
-                animation: bounce 2s infinite;
+                margin-top: 2rem;
 
                 svg {
-                    width: 16px;
-                    height: 16px;
+                    width: 30px;
+                    height: 30px;
+                    color: $primary-color;
                     stroke-width: 2;
+                    transform: rotate(90deg);
                 }
             }
         }
 
-        &:last-child .step-connector {
+        // Remove arrow from last card on mobile
+        &:last-child .step-arrow {
             display: none;
+        }
+
+        &:hover .step-icon {
+            background: $primary-color;
+            color: $white;
+            transform: scale(1.1);
         }
     }
 
     // Bottom CTA Section
     .section-cta {
-        background: linear-gradient(135deg, $gray-50 0%, $white 100%);
+        background: $gray-50;
         border-radius: $radius-xl;
-        padding: 4rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-
-        @media (max-width: 1024px) {
-            grid-template-columns: 1fr;
-            text-align: center;
-            padding: 3rem 2rem;
-        }
+        padding: 3rem;
+        text-align: center;
+        border: 1px solid $gray-200;
 
         @media (max-width: 768px) {
             padding: 2rem 1.5rem;
         }
 
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-    }
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
 
-    .cta-content {
-        .cta-title {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: $text-dark;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-
-            @media (max-width: 768px) {
-                font-size: 1.75rem;
-            }
-        }
-
-        .cta-description {
-            font-size: 1.1rem;
-            color: $text-light;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-
-            @media (max-width: 768px) {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn-primary {
-                background: $primary-color;
-                color: $white;
-                border: none;
-                padding: 1rem 2rem;
-                border-radius: $radius-lg;
-                font-weight: 600;
-                font-size: 1rem;
-                cursor: pointer;
-                transition: $transition-all;
-                box-shadow: $shadow-md;
-
-                &:hover {
-                    background: $primary-green-hover;
-                    transform: translateY(-2px);
-                    box-shadow: $shadow-lg;
-                }
-
-                @media (max-width: 768px) {
-                    width: 100%;
-                }
-            }
-
-            .btn-outline {
-                background: transparent;
+            .cta-title {
+                font-size: 2rem;
+                font-weight: 700;
                 color: $text-dark;
-                border: 2px solid $gray-300;
-                padding: 1rem 2rem;
-                border-radius: $radius-lg;
-                font-weight: 600;
-                font-size: 1rem;
-                cursor: pointer;
-                transition: $transition-all;
-
-                &:hover {
-                    border-color: $primary-color;
-                    color: $primary-color;
-                    transform: translateY(-1px);
-                }
+                margin-bottom: 1rem;
+                line-height: 1.2;
 
                 @media (max-width: 768px) {
-                    width: 100%;
+                    font-size: 1.5rem;
                 }
             }
-        }
-    }
 
-    .cta-visual {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
+            .cta-description {
+                font-size: 1.1rem;
+                color: $text-light;
+                margin-bottom: 2rem;
+                line-height: 1.6;
 
-        @media (max-width: 1024px) {
-            margin-top: 2rem;
-        }
-    }
-
-    .visual-elements {
-        position: relative;
-        width: 300px;
-        height: 300px;
-
-        @media (max-width: 768px) {
-            width: 250px;
-            height: 250px;
-        }
-
-        .element {
-            position: absolute;
-            background: $white;
-            border-radius: $radius-xl;
-            padding: 1.5rem;
-            box-shadow: $shadow-lg;
-            border: 1px solid $gray-200;
-            transition: $transition-all;
-
-            &:hover {
-                transform: translateY(-5px);
-                box-shadow: $shadow-xl;
+                @media (max-width: 768px) {
+                    font-size: 1rem;
+                    margin-bottom: 1.5rem;
+                }
             }
 
-            &.element-1 {
-                top: 0;
-                left: 0;
-                animation: float 6s ease-in-out infinite;
-            }
-
-            &.element-2 {
-                top: 50%;
-                right: 0;
-                transform: translateY(-50%);
-                animation: float 4s ease-in-out infinite reverse;
-            }
-
-            &.element-3 {
-                bottom: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                animation: float 5s ease-in-out infinite;
-            }
-
-            .element-content {
+            .cta-buttons {
                 display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 0.75rem;
+                gap: 1rem;
+                justify-content: center;
 
-                .element-icon {
-                    width: 40px;
-                    height: 40px;
-                    color: $primary-color;
+                @media (max-width: 768px) {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 0.75rem;
+                }
 
-                    svg {
+                .btn-primary {
+                    background: $primary-color;
+                    color: $white;
+                    border: none;
+                    padding: 1rem 2rem;
+                    border-radius: $radius-lg;
+                    font-weight: 600;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    transition: $transition-all;
+                    box-shadow: $shadow-md;
+
+                    &:hover {
+                        background: $primary-green-hover;
+                        transform: translateY(-2px);
+                        box-shadow: $shadow-lg;
+                    }
+
+                    @media (max-width: 768px) {
                         width: 100%;
-                        height: 100%;
-                        stroke-width: 2;
+                        max-width: 250px;
                     }
                 }
 
-                span {
-                    font-size: 0.9rem;
-                    font-weight: 600;
+                .btn-outline {
+                    background: transparent;
                     color: $text-dark;
-                    white-space: nowrap;
+                    border: 2px solid $gray-300;
+                    padding: 1rem 2rem;
+                    border-radius: $radius-lg;
+                    font-weight: 600;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    transition: $transition-all;
+
+                    &:hover {
+                        border-color: $primary-color;
+                        color: $primary-color;
+                        transform: translateY(-2px);
+                    }
+
+                    @media (max-width: 768px) {
+                        width: 100%;
+                        max-width: 250px;
+                    }
                 }
             }
         }
-    }
-}
-
-// Animations
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes bounce {
-
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        transform: translateY(0);
-    }
-
-    40% {
-        transform: translateY(-5px);
-    }
-
-    60% {
-        transform: translateY(-3px);
-    }
-}
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-10px);
     }
 }
 
@@ -501,20 +299,30 @@
         }
 
         .steps-grid {
-            gap: 2.5rem;
-            margin-bottom: 4rem;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
 
         .step-card {
+            padding: 2rem 1.5rem;
+
             .step-icon {
-                width: 80px;
-                height: 80px;
+                width: 70px;
+                height: 70px;
 
                 svg {
                     width: 30px;
                     height: 30px;
                 }
             }
+
+            .step-content .step-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        .section-cta {
+            padding: 2rem 1rem;
         }
     }
 }
