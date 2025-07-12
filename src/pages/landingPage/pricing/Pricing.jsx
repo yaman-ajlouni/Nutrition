@@ -6,23 +6,23 @@ const Pricing = () => {
 
     const plans = [
         {
-            name: "Starter",
-            description: "Perfect for small food businesses getting started",
-            monthlyPrice: 49,
-            yearlyPrice: 39,
+            name: "Basic",
+            description: "Perfect for small food businesses and startups",
+            monthlyPrice: 29,
+            yearlyPrice: 23,
             popular: false,
             features: [
-                "Up to 25 products",
+                "Up to 3 products per month",
                 "Basic ingredient database",
-                "Standard nutrition labels",
+                "Standard GSO-compliant templates",
+                "Manual product entry",
+                "Basic compliance checks",
                 "PDF & PNG exports",
                 "Email support",
-                "Basic allergen tracking",
-                "Recipe storage",
-                "FDA compliance check"
+                "Help center access"
             ],
             limitations: [
-                "Limited to 25 products",
+                "Limited to 3 products monthly",
                 "Basic support only"
             ],
             buttonText: "Start Free Trial",
@@ -30,23 +30,23 @@ const Pricing = () => {
         },
         {
             name: "Professional",
-            description: "Ideal for growing manufacturers and mid-size factories",
-            monthlyPrice: 149,
-            yearlyPrice: 119,
+            description: "Ideal for growing manufacturers and mid-size producers",
+            monthlyPrice: 89,
+            yearlyPrice: 71,
             popular: true,
             features: [
-                "Up to 500 products",
-                "Complete ingredient database (10,000+ items)",
-                "Advanced nutrition calculations",
-                "All export formats + API access",
-                "Priority support & phone support",
-                "Advanced allergen management",
-                "Batch processing",
+                "Up to 20 products per month",
+                "Complete ingredient database",
+                "Advanced label templates",
+                "Bilingual labels (Arabic/English)",
+                "Priority review queue",
                 "Team collaboration (5 users)",
-                "Custom ingredients",
-                "Nutritional analysis reports",
-                "Label customization",
-                "Version control"
+                "QR code generation",
+                "Label validation reports",
+                "Product history dashboard",
+                "Email & phone support",
+                "Onboarding session",
+                "Food technician support"
             ],
             limitations: [],
             buttonText: "Start Free Trial",
@@ -54,25 +54,23 @@ const Pricing = () => {
         },
         {
             name: "Enterprise",
-            description: "For large-scale manufacturers with complex needs",
-            monthlyPrice: 399,
-            yearlyPrice: 319,
+            description: "For large-scale manufacturers and distributors",
+            monthlyPrice: 299,
+            yearlyPrice: 239,
             popular: false,
             features: [
                 "Unlimited products",
-                "Complete database + custom additions",
-                "Advanced AI-powered calculations",
-                "Full API access & integrations",
+                "Bulk product submissions",
+                "Excel/CSV import capabilities",
+                "API access & integrations",
+                "Compliance dashboard",
                 "Dedicated account manager",
-                "Complete allergen suite",
-                "Advanced batch operations",
-                "Unlimited team members",
-                "Custom formulation tools",
-                "Advanced analytics & reporting",
-                "White-label solutions",
-                "Custom integrations",
-                "Regulatory compliance suite",
-                "Multi-facility management"
+                "Multi-user access (unlimited)",
+                "Custom certificates & badges",
+                "Private label support",
+                "Advanced QR analytics",
+                "Regulatory update training",
+                "24/7 priority support"
             ],
             limitations: [],
             buttonText: "Contact Sales",
@@ -85,11 +83,11 @@ const Pricing = () => {
             title: "All Plans Include",
             features: [
                 "14-day free trial",
-                "99.9% calculation accuracy",
-                "FDA compliant labels",
+                "GSO 9/2013 compliance",
+                "99% calculation accuracy",
                 "Data security & encryption",
-                "Regular database updates",
-                "Mobile responsive interface"
+                "Mobile responsive interface",
+                "Regular database updates"
             ]
         }
     ];
@@ -108,7 +106,7 @@ const Pricing = () => {
                     </h2>
                     <p className="section-description">
                         Choose the perfect plan for your food manufacturing needs.
-                        All plans include our core nutrition calculation engine with no hidden fees.
+                        Core nutrition calculation engine with no hidden fees.
                     </p>
                 </div>
 
@@ -146,7 +144,7 @@ const Pricing = () => {
                                     <span className="amount">
                                         {isYearly ? plan.yearlyPrice : plan.monthlyPrice}
                                     </span>
-                                    <span className="period">/{isYearly ? 'month' : 'month'}</span>
+                                    <span className="period">/month</span>
                                 </div>
 
                                 {isYearly && (
@@ -204,15 +202,13 @@ const Pricing = () => {
                     </div>
                 </div>
 
-
-
                 {/* Bottom CTA */}
                 <div className="pricing-cta">
                     <div className="cta-content">
                         <h3 className="cta-title">Still Have Questions?</h3>
                         <p className="cta-description">
                             Our nutrition labeling experts are here to help you choose the right plan
-                            and answer any questions about compliance or implementation.
+                            and answer any questions about GSO compliance or implementation.
                         </p>
                         <div className="cta-buttons">
                             <button className="btn-primary">
