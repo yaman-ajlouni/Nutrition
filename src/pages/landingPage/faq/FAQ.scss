@@ -2,7 +2,7 @@
 
 .faq {
     padding: 6rem 0;
-    background: linear-gradient(135deg, lighten($primary-color, 45%) 0%, $white 15%, $gray-50 35%, $white 50%, $gray-50 65%, $white 85%, lighten($primary-color, 45%) 100%);
+    background: linear-gradient(110deg, lighten($primary-color, 45%) 0%, $gray-50 30%, $white 60%, $gray-50 75%, rgba(lighten($primary-color, 45%), 0.8) 90%, lighten($primary-color, 45%) 100%);
     position: relative;
     overflow: hidden;
 

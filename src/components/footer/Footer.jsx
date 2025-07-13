@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from '../../assets/images/nutrition.jpg'
+import logo from '../../assets/images/nutrition-nobg.png'
 import './Footer.scss';
 
 const Footer = () => {
@@ -20,11 +20,11 @@ const Footer = () => {
                     {/* Company Section */}
                     <div className="footer-section company-section">
                         <div className="footer-logo">
-                            <img src={logo} alt="Taghzitak Nutrition Platform" className="logo-image" />
+                            <img src={logo} alt="تغذيتك" className="logo-image" />
                         </div>
                         <p className="company-description">
-                            Smart digital nutrition labeling platform designed for MENA region food manufacturers.
-                            Generate GSO-compliant nutrition labels with QR codes quickly and accurately.
+                            Professional nutrition facts calculator designed for food manufacturers.
+                            Generate accurate nutrition labels quickly and efficiently.
                         </p>
                         <div className="social-links">
                             <a href="#" className="social-link" aria-label="Facebook">
@@ -52,14 +52,14 @@ const Footer = () => {
 
                     {/* Product Links */}
                     <div className="footer-section">
-                        <h3 className="footer-title">Platform</h3>
+                        <h3 className="footer-title">Product</h3>
                         <ul className="footer-links">
                             <li><a href="#features">Features</a></li>
                             <li><a href="#pricing">Pricing</a></li>
                             <li><a href="#calculator">Nutrition Calculator</a></li>
                             <li><a href="#database">Ingredient Database</a></li>
-                            <li><a href="#qr-codes">QR Code Generator</a></li>
                             <li><a href="#api">API Access</a></li>
+                            <li><a href="#integrations">Integrations</a></li>
                         </ul>
                     </div>
 
@@ -68,10 +68,10 @@ const Footer = () => {
                         <h3 className="footer-title">Solutions</h3>
                         <ul className="footer-links">
                             <li><a href="#food-manufacturers">Food Manufacturers</a></li>
-                            <li><a href="#bakeries">Bakeries & Cafes</a></li>
                             <li><a href="#restaurants">Restaurants</a></li>
-                            <li><a href="#catering">Catering Services</a></li>
-                            <li><a href="#distributors">Distributors</a></li>
+                            <li><a href="#bakeries">Bakeries</a></li>
+                            <li><a href="#beverage-companies">Beverage Companies</a></li>
+                            <li><a href="#supplement-brands">Supplement Brands</a></li>
                             <li><a href="#enterprise">Enterprise Solutions</a></li>
                         </ul>
                     </div>
@@ -83,9 +83,9 @@ const Footer = () => {
                             <li><a href="#help-center">Help Center</a></li>
                             <li><a href="#documentation">Documentation</a></li>
                             <li><a href="#faq">FAQ</a></li>
-                            <li><a href="#compliance-guide">GSO Compliance Guide</a></li>
-                            <li><a href="#tutorials">Video Tutorials</a></li>
-                            <li><a href="#webinars">Training Webinars</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#case-studies">Case Studies</a></li>
+                            <li><a href="#webinars">Webinars</a></li>
                         </ul>
                     </div>
 
@@ -94,11 +94,11 @@ const Footer = () => {
                         <h3 className="footer-title">Company</h3>
                         <ul className="footer-links">
                             <li><a href="#about">About Us</a></li>
+                            <li><a href="#careers">Careers</a></li>
+                            <li><a href="#press">Press</a></li>
+                            <li><a href="#partners">Partners</a></li>
                             <li><a href="#contact">Contact</a></li>
                             <li><a href="#support">Support</a></li>
-                            <li><a href="#partners">Partners</a></li>
-                            <li><a href="#careers">Careers</a></li>
-                            <li><a href="#press">Press Kit</a></li>
                         </ul>
                     </div>
 
@@ -106,8 +106,7 @@ const Footer = () => {
                     <div className="footer-section newsletter-section">
                         <h3 className="footer-title">Stay Updated</h3>
                         <p className="newsletter-description">
-                            Get the latest updates on nutrition labeling regulations, platform features,
-                            and industry insights for the MENA region.
+                            Get the latest updates on nutrition labeling regulations and platform features.
                         </p>
                         <form className="newsletter-form" onSubmit={handleNewsletterSubmit}>
                             <div className="input-group">
@@ -126,21 +125,6 @@ const Footer = () => {
                                 </button>
                             </div>
                         </form>
-                        <div className="trust-badges">
-                            <div className="trust-badge">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                </svg>
-                                <span>SSL Secured</span>
-                            </div>
-                            <div className="trust-badge">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                    <path d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4" />
-                                    <path d="M9 11V7a3 3 0 0 1 6 0v4" />
-                                </svg>
-                                <span>GSO Compliant</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -148,16 +132,13 @@ const Footer = () => {
                 <div className="footer-bottom">
                     <div className="footer-bottom-content">
                         <div className="copyright">
-                            <p>&copy; 2025 Taghzitak Nutrition Platform. All rights reserved.</p>
+                            <p>&copy; 2025 تغذيتك. All rights reserved.</p>
                         </div>
                         <div className="legal-links">
                             <a href="#privacy">Privacy Policy</a>
                             <a href="#terms">Terms of Service</a>
                             <a href="#cookies">Cookie Policy</a>
                             <a href="#security">Security</a>
-                        </div>
-                        <div className="certification">
-                            <span className="cert-text">Certified for GSO 9/2013 Compliance</span>
                         </div>
                     </div>
                 </div>

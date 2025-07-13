@@ -2,7 +2,7 @@
 
 .pricing {
     padding: 6rem 0;
-    background: linear-gradient(225deg, lighten($primary-color, 45%) 0%, $white 20%, $gray-50 40%, $white 60%, $gray-50 80%, lighten($primary-color, 45%) 100%);
+    background: linear-gradient(250deg, lighten($primary-color, 45%) 0%, $gray-50 30%, $white 60%, $gray-50 75%, rgba(lighten($primary-color, 45%), 0.8) 90%, lighten($primary-color, 45%) 100%);
     position: relative;
     overflow: hidden;
 

@@ -11,12 +11,6 @@ const Intro = () => {
   return (
     <section className="intro">
       <div className="intro-container">
-        {/* Background decorative elements */}
-        <div className="background-decoration">
-          <div className="decoration-circle circle-1"></div>
-          <div className="decoration-circle circle-2"></div>
-          <div className="decoration-circle circle-3"></div>
-        </div>
 
         {/* Main Content */}
         <div className="intro-content">

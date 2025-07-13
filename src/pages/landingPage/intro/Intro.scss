@@ -1,56 +1,13 @@
 @import '../../../assets/styles/vars.scss';
 
 .intro {
-    background: linear-gradient(135deg, $white 0%, $gray-50 50%, lighten($primary-color, 45%) 100%);
-    padding: 4rem 0;
+    background: linear-gradient(115deg, $white 0%, $gray-50 40%, lighten($primary-color, 45%) 100%);
+    padding: 2rem 0 1rem 0; // Much reduced padding
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-    min-height: 90vh;
-
-    // Background decorative elements
-    .background-decoration {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 0;
-
-        .decoration-circle {
-            position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(45deg, rgba($primary-color, 0.1), rgba($primary-color, 0.05));
-            backdrop-filter: blur(1px);
-
-            &.circle-1 {
-                width: 300px;
-                height: 300px;
-                top: -150px;
-                right: -150px;
-                animation: float 8s ease-in-out infinite;
-            }
-
-            &.circle-2 {
-                width: 200px;
-                height: 200px;
-                bottom: -100px;
-                left: -100px;
-                animation: float 10s ease-in-out infinite reverse;
-            }
-
-            &.circle-3 {
-                width: 150px;
-                height: 150px;
-                top: 30%;
-                left: 10%;
-                animation: float 6s ease-in-out infinite;
-                opacity: 0.5;
-            }
-        }
-    }
+    min-height: 80vh; // Reduced from 90vh
 
     .intro-container {
         max-width: 1800px;
@@ -63,12 +20,12 @@
     .intro-content {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 5rem;
+        gap: 3rem; // Reduced gap
         align-items: center;
 
         @media (max-width: 1024px) {
             grid-template-columns: 1fr;
-            gap: 3rem;
+            gap: 2rem;
             text-align: center;
         }
     }
@@ -92,11 +49,11 @@
     }
 
     .intro-title {
-        font-size: 3.8rem;
+        font-size: 2.8rem; // Reduced from 3.8rem
         font-weight: 800;
         line-height: 1.1;
         color: $text-dark;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem; // Reduced margin
         letter-spacing: -0.02em;
 
         .highlight {
@@ -117,35 +74,35 @@
         }
 
         @media (max-width: 768px) {
-            font-size: 2.5rem;
+            font-size: 2.2rem; // Reduced from 2.5rem
         }
 
         @media (max-width: 480px) {
-            font-size: 2rem;
+            font-size: 1.8rem; // Reduced from 2rem
         }
     }
 
     .intro-description {
-        font-size: 1.25rem;
-        line-height: 1.7;
+        font-size: 1.1rem; // Reduced from 1.25rem
+        line-height: 1.6; // Reduced line height
         color: $text-light;
-        margin-bottom: 2.5rem;
+        margin-bottom: 1.5rem; // Reduced margin
         animation: fadeInUp 0.8s ease-out 0.2s both;
 
         @media (max-width: 768px) {
-            font-size: 1.1rem;
+            font-size: 1rem; // Reduced from 1.1rem
         }
     }
 
     // Enhanced Features
     .intro-features {
         display: flex;
-        gap: 2.5rem;
-        margin-bottom: 3rem;
+        gap: 2rem; // Reduced gap
+        margin-bottom: 2rem; // Reduced margin
 
         @media (max-width: 768px) {
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         @media (max-width: 1024px) {
@@ -155,9 +112,10 @@
         .feature-item {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.6rem; // Reduced gap
             color: $text-dark;
             font-weight: 500;
+            font-size: 0.9rem; // Added smaller font size
             animation: fadeInUp 0.6s ease-out calc(0.4s + var(--index) * 0.1s) both;
             transition: all 0.3s ease;
             cursor: default;
@@ -184,8 +142,8 @@
             }
 
             .feature-icon {
-                width: 40px;
-                height: 40px;
+                width: 35px; // Reduced from 40px
+                height: 35px;
                 color: $primary-color;
                 flex-shrink: 0;
                 display: flex;
@@ -195,8 +153,8 @@
                 transition: all 0.3s ease;
 
                 svg {
-                    width: 20px;
-                    height: 20px;
+                    width: 18px; // Reduced from 20px
+                    height: 18px;
                     stroke-width: 2;
                 }
             }
@@ -206,8 +164,8 @@
     // Enhanced Action Buttons
     .intro-actions {
         display: flex;
-        gap: 1.5rem;
-        margin-bottom: 3rem;
+        gap: 1.2rem; // Reduced gap
+        margin-bottom: 2rem; // Reduced margin
         animation: fadeInUp 0.8s ease-out 0.6s both;
 
         @media (max-width: 768px) {
@@ -224,16 +182,16 @@
         background: linear-gradient(135deg, $primary-color, darken($primary-color, 10%));
         color: $white;
         border: none;
-        padding: 1.2rem 2.5rem;
+        padding: 1rem 2rem; // Reduced padding
         border-radius: $radius-lg;
         font-weight: 600;
-        font-size: 1.1rem;
+        font-size: 1rem; // Reduced from 1.1rem
         cursor: pointer;
         transition: all 0.3s ease;
         box-shadow: 0 8px 25px rgba($primary-color, 0.3);
         display: flex;
         align-items: center;
-        gap: 0.75rem;
+        gap: 0.6rem; // Reduced gap
         position: relative;
         overflow: hidden;
 
@@ -249,8 +207,8 @@
         }
 
         .btn-arrow {
-            width: 20px;
-            height: 20px;
+            width: 18px; // Reduced from 20px
+            height: 18px;
             stroke-width: 2;
             transition: all 0.3s ease;
         }
@@ -282,10 +240,10 @@
         background: transparent;
         color: $text-dark;
         border: 2px solid $gray-300;
-        padding: 1.2rem 2.5rem;
+        padding: 1rem 2rem; // Reduced padding
         border-radius: $radius-lg;
         font-weight: 600;
-        font-size: 1.1rem;
+        font-size: 1rem; // Reduced from 1.1rem
         cursor: pointer;
         transition: all 0.3s ease;
         position: relative;
@@ -324,13 +282,13 @@
     .intro-stats {
         display: flex;
         align-items: center;
-        gap: 2.5rem;
+        gap: 2rem; // Reduced gap
         animation: fadeInUp 0.8s ease-out 0.8s both;
 
         @media (max-width: 768px) {
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
 
         .stat-item {
@@ -348,7 +306,7 @@
             }
 
             .stat-number {
-                font-size: 2.2rem;
+                font-size: 1.8rem; // Reduced from 2.2rem
                 font-weight: 800;
                 color: $primary-color;
                 line-height: 1;
@@ -356,23 +314,23 @@
             }
 
             .stat-suffix {
-                font-size: 2.2rem;
+                font-size: 1.8rem; // Reduced from 2.2rem
                 font-weight: 800;
                 color: $primary-color;
                 line-height: 1;
             }
 
             .stat-label {
-                font-size: 0.9rem;
+                font-size: 0.85rem; // Reduced from 0.9rem
                 color: $text-light;
                 font-weight: 500;
-                margin-top: 0.25rem;
+                margin-top: 0.2rem; // Reduced margin
             }
         }
 
         .stat-divider {
             width: 1px;
-            height: 40px;
+            height: 35px; // Reduced from 40px
             background: linear-gradient(to bottom, transparent, $gray-300, transparent);
 
             @media (max-width: 768px) {
@@ -397,16 +355,16 @@
         }
 
         @media (max-width: 1024px) {
-            margin-top: 2rem;
+            margin-top: 1.5rem; // Reduced margin
         }
     }
 
     .visual-card {
         background: $white;
         border-radius: $radius-xl;
-        padding: 2.5rem;
+        padding: 2rem; // Reduced from 2.5rem
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        max-width: 380px;
+        max-width: 340px; // Reduced from 380px
         width: 100%;
         position: relative;
         border: 1px solid $gray-200;
@@ -419,19 +377,19 @@
 
         .card-header {
             text-align: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
+            margin-bottom: 1.2rem; // Reduced margin
+            padding-bottom: 0.8rem; // Reduced padding
             border-bottom: 2px solid $black;
 
             .card-title {
-                font-size: 1.6rem;
+                font-size: 1.4rem; // Reduced from 1.6rem
                 font-weight: 700;
                 color: $black;
-                margin-bottom: 0.25rem;
+                margin-bottom: 0.2rem; // Reduced margin
             }
 
             .card-subtitle {
-                font-size: 0.9rem;
+                font-size: 0.85rem; // Reduced from 0.9rem
                 color: $text-light;
             }
         }
@@ -440,7 +398,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.75rem 0;
+            padding: 0.6rem 0; // Reduced padding
             border-bottom: 1px solid $gray-200;
             transition: background-color 0.2s ease;
 
@@ -459,39 +417,41 @@
             .nutrition-label {
                 font-weight: 500;
                 color: $text-dark;
+                font-size: 0.9rem; // Added smaller font size
             }
 
             .nutrition-value {
                 font-weight: 600;
                 color: $black;
+                font-size: 0.9rem; // Added smaller font size
             }
         }
 
         .calculation-badge {
             position: absolute;
-            top: -15px;
-            right: -15px;
+            top: -12px; // Adjusted position
+            right: -12px;
             background: linear-gradient(135deg, $primary-color, darken($primary-color, 15%));
             color: $white;
-            padding: 0.75rem 1.25rem;
+            padding: 0.6rem 1rem; // Reduced padding
             border-radius: $radius-full;
-            font-size: 0.8rem;
+            font-size: 0.75rem; // Reduced from 0.8rem
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem; // Reduced gap
             box-shadow: 0 8px 25px rgba($primary-color, 0.3);
             animation: float 3s ease-in-out infinite, pulse 2s ease-in-out infinite;
 
             .badge-icon {
-                width: 18px;
-                height: 18px;
+                width: 16px; // Reduced from 18px
+                height: 16px;
                 background: rgba(255, 255, 255, 0.2);
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 10px;
+                font-size: 9px; // Reduced from 10px
             }
         }
     }
@@ -547,7 +507,7 @@
 // Responsive adjustments
 @media (max-width: 768px) {
     .intro {
-        padding: 2rem 0;
+        padding: 1.5rem 0 1rem 0; // Much reduced padding
         min-height: auto;
 
         .intro-container {
@@ -555,39 +515,17 @@
         }
 
         .intro-content {
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .visual-card {
             max-width: 100%;
-            padding: 2rem;
+            padding: 1.5rem; // Reduced padding
         }
 
         .intro-features {
             flex-direction: column;
             align-items: center;
-        }
-
-        .background-decoration {
-            .decoration-circle {
-                &.circle-1 {
-                    width: 200px;
-                    height: 200px;
-                    top: -100px;
-                    right: -100px;
-                }
-
-                &.circle-2 {
-                    width: 150px;
-                    height: 150px;
-                    bottom: -75px;
-                    left: -75px;
-                }
-
-                &.circle-3 {
-                    display: none;
-                }
-            }
         }
     }
 }

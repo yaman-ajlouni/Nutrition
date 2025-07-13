@@ -1,38 +1,9 @@
 @import '../../../assets/styles/vars.scss';
 
 .features {
-    padding: 6rem 0;
-    background: linear-gradient(135deg, lighten($primary-color, 45%) 0%, $white 20%, $gray-50 50%, $white 80%, lighten($primary-color, 45%) 100%);
+    padding: 0 0 6rem 0; // Removed top padding for seamless merge
+    background: linear-gradient(135deg, lighten($primary-color, 45%) 0%, $gray-50 30%, $white 60%, $gray-50 75%, rgba(lighten($primary-color, 45%), 0.8) 90%, lighten($primary-color, 45%) 100%);
     position: relative;
-    overflow: hidden;
-
-    // Background decorative elements
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: radial-gradient(circle at 20% 20%, rgba($primary-color, 0.05) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgba($primary-color, 0.08) 0%, transparent 50%);
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    &::after {
-        content: '';
-        position: absolute;
-        top: 10%;
-        right: 5%;
-        width: 200px;
-        height: 200px;
-        background: radial-gradient(circle, rgba($primary-color, 0.06) 0%, transparent 70%);
-        border-radius: 50%;
-        animation: float 8s ease-in-out infinite;
-        pointer-events: none;
-        z-index: 0;
-    }
 
     .features-container {
         max-width: 1400px;
@@ -40,6 +11,7 @@
         padding: 0 2rem;
         position: relative;
         z-index: 1;
+        padding: 4rem 2rem 0; // Regular top padding
     }
 
     // Section Header
@@ -665,10 +637,10 @@
 // Additional responsive adjustments
 @media (max-width: 480px) {
     .features {
-        padding: 4rem 0;
+        padding: 0 0 4rem 0;
 
         .features-container {
-            padding: 0 1rem;
+            padding: 2rem 1rem 0; // Regular mobile padding
         }
 
         .section-header {
