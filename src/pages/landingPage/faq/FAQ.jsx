@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Search, ChevronDown, Mail, Phone, MessageCircle, HelpCircle, ClipboardList, Settings, DollarSign, User } from 'lucide-react';
 import './FAQ.scss';
 
 const FAQ = () => {
@@ -7,11 +8,11 @@ const FAQ = () => {
     const [searchTerm, setSearchTerm] = useState('');
 
     const categories = [
-        { id: 'general', name: 'General', icon: '❓' },
-        { id: 'compliance', name: 'Compliance & Regulations', icon: '📋' },
-        { id: 'technical', name: 'Technical Features', icon: '⚙️' },
-        { id: 'pricing', name: 'Pricing & Plans', icon: '💰' },
-        { id: 'account', name: 'Account & Support', icon: '👤' }
+        { id: 'general', name: 'General', icon: <HelpCircle /> },
+        { id: 'compliance', name: 'Compliance & Regulations', icon: <ClipboardList /> },
+        { id: 'technical', name: 'Technical Features', icon: <Settings /> },
+        { id: 'pricing', name: 'Pricing & Plans', icon: <DollarSign /> },
+        { id: 'account', name: 'Account & Support', icon: <User /> }
     ];
 
     const faqData = {
@@ -161,10 +162,7 @@ const FAQ = () => {
                 <div className="search-section">
                     <div className="search-box">
                         <div className="search-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <circle cx="11" cy="11" r="8" />
-                                <path d="M21 21l-4.35-4.35" />
-                            </svg>
+                            <Search />
                         </div>
                         <input
                             type="text"
@@ -202,9 +200,7 @@ const FAQ = () => {
                                     >
                                         <span className="question-text">{faq.question}</span>
                                         <span className="question-icon">
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                                <path d="M6 9l6 6 6-6" />
-                                            </svg>
+                                            <ChevronDown />
                                         </span>
                                     </button>
 
@@ -219,10 +215,7 @@ const FAQ = () => {
                     ) : (
                         <div className="no-results">
                             <div className="no-results-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                    <circle cx="11" cy="11" r="8" />
-                                    <path d="M21 21l-4.35-4.35" />
-                                </svg>
+                                <Search />
                             </div>
                             <h3>No results found</h3>
                             <p>Try different keywords or browse categories above.</p>
@@ -241,10 +234,7 @@ const FAQ = () => {
                         <div className="help-options">
                             <div className="help-option">
                                 <div className="option-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                        <polyline points="22,6 12,13 2,6" />
-                                    </svg>
+                                    <Mail />
                                 </div>
                                 <div className="option-content">
                                     <h4>Email Support</h4>
@@ -255,9 +245,7 @@ const FAQ = () => {
 
                             <div className="help-option">
                                 <div className="option-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                                    </svg>
+                                    <Phone />
                                 </div>
                                 <div className="option-content">
                                     <h4>Schedule a Call</h4>
@@ -268,9 +256,7 @@ const FAQ = () => {
 
                             <div className="help-option">
                                 <div className="option-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                                    </svg>
+                                    <MessageCircle />
                                 </div>
                                 <div className="option-content">
                                     <h4>Live Chat</h4>
