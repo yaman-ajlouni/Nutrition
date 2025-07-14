@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Navbar.scss';
 import nutrition from '../../assets/images/nutrition.jpg'
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     // Handle scroll effect
     useEffect(() => {
@@ -24,42 +27,108 @@ const Navbar = () => {
         setIsMenuOpen(false);
     };
 
+    // Handle navigation to sections on landing page
+    const handleNavigation = (path, sectionId = null) => {
+        closeMenu();
+
+        if (sectionId && location.pathname === '/') {
+            // If we're on the landing page, scroll to section
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else if (sectionId && location.pathname !== '/') {
+            // If we're not on landing page, navigate to home then scroll
+            navigate('/');
+            setTimeout(() => {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        } else {
+            // Regular navigation
+            navigate(path);
+        }
+    };
+
+    const isActiveLink = (path) => {
+        return location.pathname === path;
+    };
+
     return (
         <nav className={`navigation ${isScrolled ? 'scrolled' : ''}`}>
             <div className="nav-container">
                 {/* Logo */}
-                <div className="nav-logo">
+                <Link to="/" className="nav-logo" onClick={closeMenu}>
                     <img src={nutrition} alt="تغذيتك" className="logo-image" />
-                </div>
+                </Link>
 
                 {/* Desktop Menu */}
                 <ul className="nav-menu">
                     <li className="nav-item">
-                        <a href="#home" className="nav-link">Home</a>
+                        <button
+                            className={`nav-link ${isActiveLink('/') ? 'active' : ''}`}
+                            onClick={() => handleNavigation('/', 'home')}
+                        >
+                            Home
+                        </button>
                     </li>
                     <li className="nav-item">
-                        <a href="#calculator" className="nav-link">Calculator</a>
+                        <Link
+                            to="/label-generator"
+                            className={`nav-link ${isActiveLink('/label-generator') ? 'active' : ''}`}
+                        >
+                            Label Generator
+                        </Link>
                     </li>
                     <li className="nav-item">
-                        <a href="#database" className="nav-link">Database</a>
+                        <Link
+                            to="/database"
+                            className={`nav-link ${isActiveLink('/database') ? 'active' : ''}`}
+                        >
+                            Database
+                        </Link>
                     </li>
                     <li className="nav-item">
-                        <a href="#reports" className="nav-link">Reports</a>
+                        <Link
+                            to="/reports"
+                            className={`nav-link ${isActiveLink('/reports') ? 'active' : ''}`}
+                        >
+                            Reports
+                        </Link>
                     </li>
                     <li className="nav-item">
-                        <a href="#services" className="nav-link">Services</a>
+                        <button
+                            className="nav-link"
+                            onClick={() => handleNavigation('/', 'services')}
+                        >
+                            Services
+                        </button>
                     </li>
                     <li className="nav-item">
-                        <a href="#about" className="nav-link">About</a>
+                        <button
+                            className="nav-link"
+                            onClick={() => handleNavigation('/', 'about')}
+                        >
+                            About
+                        </button>
                     </li>
                     <li className="nav-item">
-                        <a href="#contact" className="nav-link">Contact</a>
+                        <Link
+                            to="/contact"
+                            className={`nav-link ${isActiveLink('/contact') ? 'active' : ''}`}
+                        >
+                            Contact
+                        </Link>
                     </li>
                 </ul>
 
                 {/* CTA Button */}
                 <div className="nav-cta">
-                    <button className="btn-primary">Get Started</button>
+                    <Link to="/label-generator" className="btn-primary">
+                        Get Started
+                    </Link>
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -79,29 +148,70 @@ const Navbar = () => {
                 <div className="mobile-menu-content">
                     <ul className="mobile-nav-menu">
                         <li className="mobile-nav-item">
-                            <a href="#home" className="mobile-nav-link" onClick={closeMenu}>Home</a>
+                            <button
+                                className={`mobile-nav-link ${isActiveLink('/') ? 'active' : ''}`}
+                                onClick={() => handleNavigation('/', 'home')}
+                            >
+                                Home
+                            </button>
                         </li>
                         <li className="mobile-nav-item">
-                            <a href="#calculator" className="mobile-nav-link" onClick={closeMenu}>Nutrition Calculator</a>
+                            <Link
+                                to="/label-generator"
+                                className={`mobile-nav-link ${isActiveLink('/label-generator') ? 'active' : ''}`}
+                                onClick={closeMenu}
+                            >
+                                Label Generator
+                            </Link>
                         </li>
                         <li className="mobile-nav-item">
-                            <a href="#database" className="mobile-nav-link" onClick={closeMenu}>Ingredient Database</a>
+                            <Link
+                                to="/database"
+                                className={`mobile-nav-link ${isActiveLink('/database') ? 'active' : ''}`}
+                                onClick={closeMenu}
+                            >
+                                Ingredient Database
+                            </Link>
                         </li>
                         <li className="mobile-nav-item">
-                            <a href="#reports" className="mobile-nav-link" onClick={closeMenu}>Reports</a>
+                            <Link
+                                to="/reports"
+                                className={`mobile-nav-link ${isActiveLink('/reports') ? 'active' : ''}`}
+                                onClick={closeMenu}
+                            >
+                                Reports
+                            </Link>
                         </li>
                         <li className="mobile-nav-item">
-                            <a href="#services" className="mobile-nav-link" onClick={closeMenu}>Services</a>
+                            <button
+                                className="mobile-nav-link"
+                                onClick={() => handleNavigation('/', 'services')}
+                            >
+                                Services
+                            </button>
                         </li>
                         <li className="mobile-nav-item">
-                            <a href="#about" className="mobile-nav-link" onClick={closeMenu}>About</a>
+                            <button
+                                className="mobile-nav-link"
+                                onClick={() => handleNavigation('/', 'about')}
+                            >
+                                About
+                            </button>
                         </li>
                         <li className="mobile-nav-item">
-                            <a href="#contact" className="mobile-nav-link" onClick={closeMenu}>Contact</a>
+                            <Link
+                                to="/contact"
+                                className={`mobile-nav-link ${isActiveLink('/contact') ? 'active' : ''}`}
+                                onClick={closeMenu}
+                            >
+                                Contact
+                            </Link>
                         </li>
                     </ul>
                     <div className="mobile-cta">
-                        <button className="btn-primary" onClick={closeMenu}>Get Started</button>
+                        <Link to="/label-generator" className="btn-primary" onClick={closeMenu}>
+                            Get Started
+                        </Link>
                     </div>
                 </div>
             </div>
