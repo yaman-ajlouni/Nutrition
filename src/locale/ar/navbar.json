@@ -1,0 +1,13 @@
+{
+    "navigation": {
+        "home": "الرئيسية",
+        "labelGenerator": "مولد التسميات",
+        "database": "قاعدة البيانات",
+        "reports": "التقارير",
+        "services": "الخدمات",
+        "about": "من نحن",
+        "contact": "تواصل معنا",
+        "getStarted": "ابدأ الآن",
+        "switchLanguage": "تبديل إلى الإنجليزية"
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "title": {
+        "part1": "منطلق من سوريا.",
+        "highlight": " جاهز لمنطقة الشرق الأوسط وشمال افريقيا",
+        "part2": "وقابل للتوسع عالمياً"
+    },
+    "description": "منصة ذكية وبسيطة للتوسيم الغذائي لمصنعي الأغذية السوريين متوافقة مع متطلبات وزارة الصحة ومعايير الخليج (GSO) -- مصممة لمساعدتك على النمو محلياً والتوسع عالمياً.",
+    "features": {
+        "gsoCompliant": "متوافق مع معايير الخليج",
+        "preciseCalculations": "حسابات دقيقة",
+        "smartQrCodes": "أكواد QR ذكية"
+    },
+    "buttons": {
+        "startCalculating": "ابدأ الحساب الآن",
+        "viewDemo": "عرض التجربة"
+    },
+    "stats": {
+        "localProducts": "منتجات محلية",
+        "labelsGenerated": "تسمية تم إنشاؤها",
+        "accuracyRate": "معدل الدقة"
+    },
+    "nutritionFacts": {
+        "title": "حقائق التغذية",
+        "per100g": "لكل 100 جرام",
+        "energy": "الطاقة",
+        "totalFat": "إجمالي الدهون",
+        "saturatedFat": "دهون مشبعة",
+        "carbohydrates": "كربوهيدرات",
+        "sugars": "سكريات",
+        "protein": "بروتين",
+        "salt": "ملح",
+        "autoCalculated": "محسوب تلقائياً"
+    }
+}

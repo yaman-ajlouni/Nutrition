@@ -1,0 +1,13 @@
+{
+    "navigation": {
+        "home": "Home",
+        "labelGenerator": "Label Generator",
+        "database": "Database",
+        "reports": "Reports",
+        "services": "Services",
+        "about": "About",
+        "contact": "Contact",
+        "getStarted": "Get Started",
+        "switchLanguage": "Switch to Arabic"
+    }
+}

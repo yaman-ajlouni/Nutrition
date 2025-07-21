@@ -1,0 +1,37 @@
+{
+    "badge": "Process",
+    "title": "How It Works",
+    "description": "Simple 4-step process for accurate, GSO-compliant nutrition labeling for MENA region food manufacturers.",
+    "steps": {
+        "step1": {
+            "title": "Create Your Account",
+            "description": "Sign up for free and access the full platform — no technical knowledge needed."
+        },
+        "step2": {
+            "title": "Enter Your Ingredients",
+            "description": "Input product details such as name, type, ingredients, and weight."
+        },
+        "step3": {
+            "title": "Set Product Details",
+            "description": "Define serving size, package info, allergens, and special tags."
+        },
+        "step4": {
+            "title": "Run Smart Nutrition Analysis",
+            "description": "Automatically calculate nutritional values and check compliance with standards."
+        },
+        "step5": {
+            "title": "Generate Labels with QR Codes",
+            "description": "Download a bilingual PDF label and get a dynamic QR code for your product."
+        },
+        "step6": {
+            "title": "Print & Apply",
+            "description": "Export your label, print it, and apply it to your product packaging."
+        }
+    },
+    "cta": {
+        "title": "Ready to Calculate Your Nutrition Facts?",
+        "description": "Join hundreds of food producers who trust our platform for accurate nutrition labeling.",
+        "primaryButton": "Start Free Trial",
+        "secondaryButton": "Schedule Demo"
+    }
+}

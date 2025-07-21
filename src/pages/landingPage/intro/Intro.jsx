@@ -1,31 +1,30 @@
 import React, { useEffect, useState } from 'react';
+import { useLanguage } from '../../../context/LanguageContext';
 import './Intro.scss';
 
 const Intro = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { t, isRTL } = useLanguage();
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
   return (
-    <section className="intro">
+    <section className={`intro ${isRTL ? 'rtl' : 'ltr'}`}>
       <div className="intro-container">
 
-        {/* Main Content */}
         <div className="intro-content">
           <div className={`intro-text ${isVisible ? 'animate-in' : ''}`}>
             <h1 className="intro-title">
-              Smart Nutrition Labeling
-              <span className="highlight"> Platform</span>
+              {t('landingPage.intro.title.part1')}
+              <span className="highlight">{t('landingPage.intro.title.highlight')}</span>
               <br />
-              For MENA Food Manufacturers
+              {t('landingPage.intro.title.part2')}
             </h1>
 
             <p className="intro-description">
-              Generate GSO-compliant nutrition labels with QR codes in minutes.
-              Designed for MENA region food producers with accurate calculations
-              and regulatory compliance.
+              {t('landingPage.intro.description')}
             </p>
 
             <div className="intro-features">
@@ -36,7 +35,7 @@ const Intro = () => {
                     <path d="M9 11V7a3 3 0 0 1 6 0v4" />
                   </svg>
                 </div>
-                <span>GSO Compliant</span>
+                <span>{t('landingPage.intro.features.gsoCompliant')}</span>
               </div>
 
               <div className="feature-item">
@@ -46,7 +45,7 @@ const Intro = () => {
                     <circle cx="12" cy="12" r="9" />
                   </svg>
                 </div>
-                <span>Precise Calculations</span>
+                <span>{t('landingPage.intro.features.preciseCalculations')}</span>
               </div>
 
               <div className="feature-item">
@@ -59,20 +58,20 @@ const Intro = () => {
                     <polyline points="10,9 9,9 8,9" />
                   </svg>
                 </div>
-                <span>Smart QR Codes</span>
+                <span>{t('landingPage.intro.features.smartQrCodes')}</span>
               </div>
             </div>
 
             <div className="intro-actions">
               <button className="btn-primary-large">
-                <span>Start Calculating Now</span>
+                <span>{t('landingPage.intro.buttons.startCalculating')}</span>
                 <svg className="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </button>
 
               <button className="btn-secondary">
-                <span>View Demo</span>
+                <span>{t('landingPage.intro.buttons.viewDemo')}</span>
                 <div className="btn-ripple"></div>
               </button>
             </div>
@@ -81,68 +80,67 @@ const Intro = () => {
               <div className="stat-item">
                 <span className="stat-number">200</span>
                 <span className="stat-suffix">+</span>
-                <span className="stat-label">Local Products</span>
+                <span className="stat-label">{t('landingPage.intro.stats.localProducts')}</span>
               </div>
               <div className="stat-divider"></div>
               <div className="stat-item">
                 <span className="stat-number">5K</span>
                 <span className="stat-suffix">+</span>
-                <span className="stat-label">Labels Generated</span>
+                <span className="stat-label">{t('landingPage.intro.stats.labelsGenerated')}</span>
               </div>
               <div className="stat-divider"></div>
               <div className="stat-item">
                 <span className="stat-number">99</span>
                 <span className="stat-suffix">%</span>
-                <span className="stat-label">Accuracy Rate</span>
+                <span className="stat-label">{t('landingPage.intro.stats.accuracyRate')}</span>
               </div>
             </div>
           </div>
 
-          {/* Visual Element */}
           <div className={`intro-visual ${isVisible ? 'animate-in' : ''}`}>
             <div className="visual-card">
               <div className="card-header">
-                <div className="card-title">Nutrition Facts</div>
-                <div className="card-subtitle">Per 100g</div>
+                <div className="card-title">{t('landingPage.intro.nutritionFacts.title')}</div>
+                <div className="card-subtitle">{t('landingPage.intro.nutritionFacts.per100g')}</div>
               </div>
 
               <div className="nutrition-item">
-                <span className="nutrition-label">Energy</span>
+                <span className="nutrition-label">{t('landingPage.intro.nutritionFacts.energy')}</span>
                 <span className="nutrition-value">250 kcal</span>
               </div>
 
               <div className="nutrition-item">
-                <span className="nutrition-label">Total Fat</span>
+                <span className="nutrition-label">{t('landingPage.intro.nutritionFacts.totalFat')}</span>
                 <span className="nutrition-value">12g</span>
               </div>
 
               <div className="nutrition-item">
-                <span className="nutrition-label">Saturated Fat</span>
+                <span className="nutrition-label">{t('landingPage.intro.nutritionFacts.saturatedFat')}</span>
                 <span className="nutrition-value">5g</span>
               </div>
 
               <div className="nutrition-item">
-                <span className="nutrition-label">Carbohydrates</span>
+                <span className="nutrition-label">{t('landingPage.intro.nutritionFacts.carbohydrates')}</span>
                 <span className="nutrition-value">31g</span>
               </div>
 
               <div className="nutrition-item">
-                <span className="nutrition-label">Sugars</span>
+                <span className="nutrition-label">{t('landingPage.intro.nutritionFacts.sugars')}</span>
                 <span className="nutrition-value">15g</span>
               </div>
 
               <div className="nutrition-item">
-                <span className="nutrition-label">Protein</span>
+                <span className="nutrition-label">{t('landingPage.intro.nutritionFacts.protein')}</span>
                 <span className="nutrition-value">8g</span>
               </div>
 
               <div className="nutrition-item">
-                <span className="nutrition-label">Salt</span>
+                <span className="nutrition-label">{t('landingPage.intro.nutritionFacts.salt')}</span>
                 <span className="nutrition-value">1.2g</span>
               </div>
 
               <div className="calculation-badge">
-                <span className="badge-text">Auto-calculated</span>
+                <span className="badge-text">{t('landingPage.intro.nutritionFacts.autoCalculated')}</span>
                 <div className="badge-icon">✓</div>
               </div>
             </div>

@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useLanguage } from '../../../context/LanguageContext';
 import './HowItWorks.scss';
 
 const HowItWorks = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const { t } = useLanguage();
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -23,8 +25,21 @@ const HowItWorks = () => {
     const steps = [
         {
             id: 1,
-            title: "Add Ingredients",
-            description: "Input your recipe with precise quantities. Our MENA database includes thousands of food items with nutritional profiles.",
+            title: t('landingPage.howItWorks.steps.step1.title'),
+            description: t('landingPage.howItWorks.steps.step1.description'),
+            icon: (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <line x1="19" y1="8" x2="19" y2="14" />
+                    <line x1="22" y1="11" x2="16" y2="11" />
+                </svg>
+            )
+        },
+        {
+            id: 2,
+            title: t('landingPage.howItWorks.steps.step2.title'),
+            description: t('landingPage.howItWorks.steps.step2.description'),
             icon: (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
@@ -36,9 +51,9 @@ const HowItWorks = () => {
             )
         },
         {
-            id: 2,
-            title: "Configure Product",
-            description: "Set serving size, package info, and category. Auto-detect allergens and special tags like 'low fat' from our database.",
+            id: 3,
+            title: t('landingPage.howItWorks.steps.step3.title'),
+            description: t('landingPage.howItWorks.steps.step3.description'),
             icon: (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
@@ -48,9 +63,9 @@ const HowItWorks = () => {
             )
         },
         {
-            id: 3,
-            title: "Smart Analysis",
-            description: "Calculate nutrition facts, flag warnings for high sugar/sodium, and check compliance against GSO 9/2013 standards.",
+            id: 4,
+            title: t('landingPage.howItWorks.steps.step4.title'),
+            description: t('landingPage.howItWorks.steps.step4.description'),
             icon: (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                     <path d="M12 2v20" />
@@ -62,16 +77,28 @@ const HowItWorks = () => {
             )
         },
         {
-            id: 4,
-            title: "Generate Labels & QR",
-            description: "Create GSO-compliant labels with QR codes linking to product pages. Download in multiple formats or use API integration.",
+            id: 5,
+            title: t('landingPage.howItWorks.steps.step5.title'),
+            description: t('landingPage.howItWorks.steps.step5.description'),
             icon: (
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                    <polyline points="14,2 14,8 20,8" />
-                    <line x1="16" y1="13" x2="8" y2="13" />
-                    <line x1="16" y1="17" x2="8" y2="17" />
-                    <polyline points="10,9 9,9 8,9" />
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                    <rect x="7" y="7" width="3" height="3" />
+                    <rect x="14" y="7" width="3" height="3" />
+                    <rect x="7" y="14" width="3" height="3" />
+                    <rect x="14" y="14" width="3" height="3" />
+                </svg>
+            )
+        },
+        {
+            id: 6,
+            title: t('landingPage.howItWorks.steps.step6.title'),
+            description: t('landingPage.howItWorks.steps.step6.description'),
+            icon: (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <polyline points="6,9 6,2 18,2 18,9" />
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                    <rect x="6" y="14" width="12" height="8" />
                 </svg>
             )
         }
@@ -90,14 +117,13 @@ const HowItWorks = () => {
                 {/* Section Header */}
                 <div className={`section-header ${isVisible ? 'animate-in' : ''}`}>
                     <div className="section-badge">
-                        <span>Process</span>
+                        <span>{t('landingPage.howItWorks.badge')}</span>
                     </div>
                     <h2 className="section-title">
-                        How It Works
+                        {t('landingPage.howItWorks.title')}
                     </h2>
                     <p className="section-description">
-                        Simple 4-step process for accurate, GSO-compliant nutrition labeling
-                        for MENA region food manufacturers.
+                        {t('landingPage.howItWorks.description')}
                     </p>
                 </div>
 
@@ -143,16 +169,16 @@ const HowItWorks = () => {
                 {/* Bottom CTA */}
                 <div className={`section-cta ${isVisible ? 'animate-in' : ''}`}>
                     <div className="cta-content">
-                        <h3 className="cta-title">Ready to Calculate Your Nutrition Facts?</h3>
+                        <h3 className="cta-title">{t('landingPage.howItWorks.cta.title')}</h3>
                         <p className="cta-description">
-                            Join hundreds of food producers who trust our platform for accurate nutrition labeling.
+                            {t('landingPage.howItWorks.cta.description')}
                         </p>
                         <div className="cta-buttons">
                             <button className="btn-primary">
-                                Start Free Trial
+                                {t('landingPage.howItWorks.cta.primaryButton')}
                             </button>
                             <button className="btn-outline">
-                                Schedule Demo
+                                {t('landingPage.howItWorks.cta.secondaryButton')}
                             </button>
                         </div>
                     </div>

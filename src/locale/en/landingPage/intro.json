@@ -1,0 +1,34 @@
+{
+  "title": {
+    "part1": "Built in Syria.",
+    "highlight": " Ready for MENA",
+    "part2": "Scalable Worldwide"
+  },
+  "description": "A smart and simple food labeling platform for Syrian manufactures, compliant with Ministry of Health and Gulf (GSO) standards -- designed to help you grow locally and expand globally.",
+  "features": {
+    "gsoCompliant": "GSO Compliant",
+    "preciseCalculations": "Precise Calculations",
+    "smartQrCodes": "Smart QR Codes"
+  },
+  "buttons": {
+    "startCalculating": "Start Calculating Now",
+    "viewDemo": "View Demo"
+  },
+  "stats": {
+    "localProducts": "Local Products",
+    "labelsGenerated": "Labels Generated",
+    "accuracyRate": "Accuracy Rate"
+  },
+  "nutritionFacts": {
+    "title": "Nutrition Facts",
+    "per100g": "Per 100g",
+    "energy": "Energy",
+    "totalFat": "Total Fat",
+    "saturatedFat": "Saturated Fat",
+    "carbohydrates": "Carbohydrates",
+    "sugars": "Sugars",
+    "protein": "Protein",
+    "salt": "Salt",
+    "autoCalculated": "Auto-calculated"
+  }
+}
