@@ -21,18 +21,36 @@ body {
     max-width: 100vw;
     box-sizing: border-box;
 
-    // RTL Layout Adjustments (without direction property)
+    // RTL Layout Adjustments
     &.rtl {
+
+        // Mobile menu slides from left side for RTL
         .mobile-menu-content {
             right: auto;
             left: 0;
             transform: translateX(-100%);
+            text-align: right;
+            direction: rtl;
         }
 
         .mobile-menu.active .mobile-menu-content {
             transform: translateX(0);
         }
 
+        // Mobile navigation items RTL alignment
+        .mobile-nav-menu {
+            .mobile-nav-link {
+                text-align: right;
+                direction: rtl;
+
+                &:hover {
+                    padding-left: 0;
+                    padding-right: 0.5rem;
+                }
+            }
+        }
+
+        // Language switcher RTL
         .language-switcher {
             .language-text {
                 order: -1;
@@ -43,12 +61,25 @@ body {
             }
         }
 
+        // Mobile language button RTL
         .mobile-language-btn {
             flex-direction: row-reverse;
+            text-align: right;
+            direction: rtl;
 
             .language-icon {
                 margin-left: 0;
                 margin-right: 0.75rem;
+            }
+        }
+
+        // Mobile CTA button RTL
+        .mobile-cta {
+            text-align: right;
+            direction: rtl;
+
+            .btn-primary {
+                direction: rtl;
             }
         }
     }
@@ -73,6 +104,10 @@ body {
         padding: 1rem 2rem;
         transition: $transition-all;
         box-sizing: border-box;
+
+        @media (max-width: 1024px) {
+            flex-direction: row-reverse;
+        }
 
         @media (max-width: 768px) {
             padding: 1rem;
