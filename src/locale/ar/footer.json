@@ -1,0 +1,62 @@
+{
+    "company": {
+        "description": "حاسبة القيم الغذائية المهنية المصممة لمصنعي الأغذية. إنشاء ملصقات التغذية الدقيقة بسرعة وكفاءة.",
+        "copyright": "© 2025 تغذيتك. جميع الحقوق محفوظة."
+    },
+    "sections": {
+        "product": {
+            "title": "المنتج",
+            "features": "الميزات",
+            "pricing": "الأسعار",
+            "nutritionCalculator": "حاسبة التغذية",
+            "ingredientDatabase": "قاعدة بيانات المكونات",
+            "apiAccess": "الوصول إلى API",
+            "integrations": "التكاملات"
+        },
+        "solutions": {
+            "title": "الحلول",
+            "foodManufacturers": "مصنعو الأغذية",
+            "restaurants": "المطاعم",
+            "bakeries": "المخابز",
+            "beverageCompanies": "شركات المشروبات",
+            "supplementBrands": "علامات المكملات الغذائية",
+            "enterprise": "حلول المؤسسات"
+        },
+        "resources": {
+            "title": "الموارد",
+            "helpCenter": "مركز المساعدة",
+            "documentation": "التوثيق",
+            "faq": "الأسئلة الشائعة",
+            "blog": "المدونة",
+            "caseStudies": "دراسات الحالة",
+            "webinars": "الندوات الإلكترونية"
+        },
+        "company": {
+            "title": "الشركة",
+            "aboutUs": "معلومات عنا",
+            "careers": "الوظائف",
+            "press": "الصحافة",
+            "partners": "الشركاء",
+            "contact": "اتصل بنا",
+            "support": "الدعم"
+        }
+    },
+    "newsletter": {
+        "title": "ابق على اطلاع",
+        "description": "احصل على آخر التحديثات حول لوائح وضع العلامات الغذائية وميزات المنصة.",
+        "placeholder": "أدخل بريدك الإلكتروني",
+        "submitButton": "اشترك"
+    },
+    "legal": {
+        "privacyPolicy": "سياسة الخصوصية",
+        "termsOfService": "شروط الخدمة",
+        "cookiePolicy": "سياسة ملفات تعريف الارتباط",
+        "security": "الأمان"
+    },
+    "socialMedia": {
+        "facebook": "فيسبوك",
+        "linkedin": "لينكد إن",
+        "twitter": "تويتر",
+        "youtube": "يوتيوب"
+    }
+}

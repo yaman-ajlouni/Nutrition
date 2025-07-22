@@ -1,13 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Search, ChevronDown, Mail, Phone, MessageCircle, HelpCircle, ClipboardList, Settings, DollarSign, User } from 'lucide-react';
+import { useLanguage } from '../../../context/LanguageContext';
 import './FAQ.scss';
 
 const FAQ = () => {
     const [activeCategory, setActiveCategory] = useState('general');
     const [openQuestions, setOpenQuestions] = useState({});
     const [searchTerm, setSearchTerm] = useState('');
+    const [isVisible, setIsVisible] = useState(false);
+    const sectionRef = useRef(null);
+    const { t } = useLanguage();
 
-    const categories = [
+    // Animation intersection observer
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.unobserve(entry.target);
+                }
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '50px 0px -50px 0px'
+            }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
+    }, []);
+
+    // Get translations for FAQ section
+    const categoriesData = t('landingPage.faq.categories', []);
+    const faqDataTranslations = t('landingPage.faq.faqData', {});
+    const helpOptionsData = t('landingPage.faq.helpSection.options', []);
+
+    const categories = categoriesData.length > 0 ? categoriesData.map((cat, index) => {
+        const icons = [<HelpCircle />, <ClipboardList />, <Settings />, <DollarSign />, <User />];
+        return {
+            id: cat.id,
+            name: cat.name,
+            icon: icons[index] || <HelpCircle />
+        };
+    }) : [
         { id: 'general', name: 'General', icon: <HelpCircle /> },
         { id: 'compliance', name: 'Compliance & Regulations', icon: <ClipboardList /> },
         { id: 'technical', name: 'Technical Features', icon: <Settings /> },
@@ -15,7 +57,7 @@ const FAQ = () => {
         { id: 'account', name: 'Account & Support', icon: <User /> }
     ];
 
-    const faqData = {
+    const faqData = Object.keys(faqDataTranslations).length > 0 ? faqDataTranslations : {
         general: [
             {
                 question: "What is nutrition labeling and why do I need it for MENA region?",
@@ -135,38 +177,37 @@ const FAQ = () => {
         }));
     };
 
-    const filteredQuestions = faqData[activeCategory].filter(faq =>
+    const filteredQuestions = faqData[activeCategory]?.filter(faq =>
         faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
         faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    ) || [];
 
     return (
-        <section className="faq">
+        <section className="faq" ref={sectionRef}>
             <div className="faq-container">
                 {/* Section Header */}
-                <div className="section-header">
+                <div className={`section-header ${isVisible ? 'animate-in' : ''}`}>
                     <div className="section-badge">
-                        <span>Help Center</span>
+                        <span>{t('landingPage.faq.sectionBadge', 'Help Center')}</span>
                     </div>
                     <h2 className="section-title">
-                        Frequently Asked
-                        <span className="highlight"> Questions</span>
+                        {t('landingPage.faq.title.part1', 'Frequently Asked')}
+                        <span className="highlight">{t('landingPage.faq.title.highlight', ' Questions')}</span>
                     </h2>
                     <p className="section-description">
-                        Common questions about nutrition labeling, GSO compliance, and platform features.
-                        Can't find what you need? Contact support.
+                        {t('landingPage.faq.description', 'Common questions about nutrition labeling, GSO compliance, and platform features. Can\'t find what you need? Contact support.')}
                     </p>
                 </div>
 
                 {/* Search Bar */}
-                <div className="search-section">
+                <div className={`search-section ${isVisible ? 'animate-in' : ''}`}>
                     <div className="search-box">
                         <div className="search-icon">
                             <Search />
                         </div>
                         <input
                             type="text"
-                            placeholder="Search for answers..."
+                            placeholder={t('landingPage.faq.searchPlaceholder', 'Search for answers...')}
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             className="search-input"
@@ -175,12 +216,13 @@ const FAQ = () => {
                 </div>
 
                 {/* Category Navigation */}
-                <div className="category-nav">
-                    {categories.map((category) => (
+                <div className={`category-nav ${isVisible ? 'animate-in' : ''}`}>
+                    {categories.map((category, index) => (
                         <button
                             key={category.id}
                             className={`category-button ${activeCategory === category.id ? 'active' : ''}`}
                             onClick={() => setActiveCategory(category.id)}
+                            style={{ '--delay': `${index * 0.1}s` }}
                         >
                             <span className="category-icon">{category.icon}</span>
                             <span className="category-name">{category.name}</span>
@@ -189,11 +231,15 @@ const FAQ = () => {
                 </div>
 
                 {/* FAQ Content */}
-                <div className="faq-content">
+                <div className={`faq-content ${isVisible ? 'animate-in' : ''}`}>
                     {filteredQuestions.length > 0 ? (
                         <div className="questions-list">
                             {filteredQuestions.map((faq, index) => (
-                                <div key={index} className="question-item">
+                                <div
+                                    key={index}
+                                    className="question-item"
+                                    style={{ '--delay': `${index * 0.1}s` }}
+                                >
                                     <button
                                         className={`question-header ${openQuestions[index] ? 'open' : ''}`}
                                         onClick={() => toggleQuestion(index)}
@@ -217,51 +263,58 @@ const FAQ = () => {
                             <div className="no-results-icon">
                                 <Search />
                             </div>
-                            <h3>No results found</h3>
-                            <p>Try different keywords or browse categories above.</p>
+                            <h3>{t('landingPage.faq.noResults.title', 'No results found')}</h3>
+                            <p>{t('landingPage.faq.noResults.description', 'Try different keywords or browse categories above.')}</p>
                         </div>
                     )}
                 </div>
 
                 {/* Still Need Help Section */}
-                <div className="help-section">
+                <div className={`help-section ${isVisible ? 'animate-in' : ''}`}>
                     <div className="help-content">
-                        <h3 className="help-title">Still Need Help?</h3>
+                        <h3 className="help-title">
+                            {t('landingPage.faq.helpSection.title', 'Still Need Help?')}
+                        </h3>
                         <p className="help-description">
-                            Our nutrition labeling experts are here to help with specific questions
-                            about GSO compliance, complex recipes, or technical implementation.
+                            {t('landingPage.faq.helpSection.description', 'Our nutrition labeling experts are here to help with specific questions about GSO compliance, complex recipes, or technical implementation.')}
                         </p>
                         <div className="help-options">
-                            <div className="help-option">
+                            <div className="help-option" style={{ '--delay': '0.1s' }}>
                                 <div className="option-icon">
                                     <Mail />
                                 </div>
                                 <div className="option-content">
-                                    <h4>Email Support</h4>
-                                    <p>Get detailed answers to complex questions</p>
-                                    <button className="option-button">Send Email</button>
+                                    <h4>{helpOptionsData[0]?.title || t('landingPage.faq.helpSection.options.0.title', 'Email Support')}</h4>
+                                    <p>{helpOptionsData[0]?.description || t('landingPage.faq.helpSection.options.0.description', 'Get detailed answers to complex questions')}</p>
+                                    <button className="option-button">
+                                        {helpOptionsData[0]?.buttonText || t('landingPage.faq.helpSection.options.0.buttonText', 'Send Email')}
+                                    </button>
                                 </div>
                             </div>
 
-                            <div className="help-option">
+                            <div className="help-option" style={{ '--delay': '0.2s' }}>
                                 <div className="option-icon">
                                     <Phone />
                                 </div>
                                 <div className="option-content">
-                                    <h4>Schedule a Call</h4>
-                                    <p>Talk directly with our nutrition experts</p>
-                                    <button className="option-button">Book Call</button>
+                                    <h4>{helpOptionsData[1]?.title || t('landingPage.faq.helpSection.options.1.title', 'Schedule a Call')}</h4>
+                                    <p>{helpOptionsData[1]?.description || t('landingPage.faq.helpSection.options.1.description', 'Talk directly with our nutrition experts')}</p>
+                                    <button className="option-button">
+                                        {helpOptionsData[1]?.buttonText || t('landingPage.faq.helpSection.options.1.buttonText', 'Book Call')}
+                                    </button>
                                 </div>
                             </div>
 
-                            <div className="help-option">
+                            <div className="help-option" style={{ '--delay': '0.3s' }}>
                                 <div className="option-icon">
                                     <MessageCircle />
                                 </div>
                                 <div className="option-content">
-                                    <h4>Live Chat</h4>
-                                    <p>Quick answers during business hours</p>
-                                    <button className="option-button">Start Chat</button>
+                                    <h4>{helpOptionsData[2]?.title || t('landingPage.faq.helpSection.options.2.title', 'Live Chat')}</h4>
+                                    <p>{helpOptionsData[2]?.description || t('landingPage.faq.helpSection.options.2.description', 'Quick answers during business hours')}</p>
+                                    <button className="option-button">
+                                        {helpOptionsData[2]?.buttonText || t('landingPage.faq.helpSection.options.2.buttonText', 'Start Chat')}
+                                    </button>
                                 </div>
                             </div>
                         </div>

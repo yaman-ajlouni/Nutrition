@@ -46,9 +46,17 @@
   .cta-content {
     text-align: center;
     margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+
+    &.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  // Enhanced Header Section
+  // Enhanced Header Section with animations
   .cta-header {
     max-width: 800px;
     margin: 0 auto 3rem;
@@ -74,6 +82,7 @@
       color: $text-dark;
       margin-bottom: 1.5rem;
       line-height: 1.2;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
 
       .highlight {
         color: $primary-color;
@@ -106,6 +115,7 @@
       color: $text-light;
       line-height: 1.6;
       margin-bottom: 0;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
 
       @media (max-width: 768px) {
         font-size: 1.1rem;
@@ -113,12 +123,20 @@
     }
   }
 
-  // Enhanced Action Buttons
+  // Enhanced Action Buttons with animations
   .cta-actions {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
     margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out 0.6s;
+
+    &.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     @media (max-width: 768px) {
       flex-direction: column;
@@ -229,7 +247,7 @@
     }
   }
 
-  // Enhanced Trust Elements
+  // Enhanced Trust Elements with animations
   .trust-elements {
     display: flex;
     justify-content: center;
@@ -241,6 +259,14 @@
     border-radius: $radius-xl;
     border: 1px solid rgba($primary-color, 0.1);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out 0.8s;
+
+    &.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     @media (max-width: 768px) {
       gap: 2rem;
@@ -262,6 +288,9 @@
       font-weight: 500;
       font-size: 0.95rem;
       transition: all 0.3s ease;
+      transform: translateY(20px);
+      opacity: 0;
+      animation: cardSlideUp 0.6s ease-out calc(1s + var(--delay)) both;
 
       &:hover {
         color: $text-dark;
@@ -295,7 +324,7 @@
     }
   }
 
-  // Enhanced Stats Section
+  // Enhanced Stats Section with animations
   .stats-section {
     background: linear-gradient(135deg, rgba($white, 0.9) 20%, lighten($primary-color, 50%) 50%, lighten($primary-color, 47%) 100%);
     backdrop-filter: blur(15px);
@@ -305,6 +334,14 @@
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
     position: relative;
     overflow: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out 1.2s;
+
+    &.animate-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     &::before {
       content: '';
@@ -354,6 +391,9 @@
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      transform: translateY(30px);
+      opacity: 0;
+      animation: cardSlideUp 0.6s ease-out calc(1.4s + var(--delay)) both;
 
       &::before {
         content: '';
@@ -459,6 +499,30 @@
 
   to {
     width: 100%;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

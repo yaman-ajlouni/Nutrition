@@ -1,0 +1,62 @@
+{
+    "company": {
+        "description": "Professional nutrition facts calculator designed for food manufacturers. Generate accurate nutrition labels quickly and efficiently.",
+        "copyright": "© 2025 تغذيتك. All rights reserved."
+    },
+    "sections": {
+        "product": {
+            "title": "Product",
+            "features": "Features",
+            "pricing": "Pricing",
+            "nutritionCalculator": "Nutrition Calculator",
+            "ingredientDatabase": "Ingredient Database",
+            "apiAccess": "API Access",
+            "integrations": "Integrations"
+        },
+        "solutions": {
+            "title": "Solutions",
+            "foodManufacturers": "Food Manufacturers",
+            "restaurants": "Restaurants",
+            "bakeries": "Bakeries",
+            "beverageCompanies": "Beverage Companies",
+            "supplementBrands": "Supplement Brands",
+            "enterprise": "Enterprise Solutions"
+        },
+        "resources": {
+            "title": "Resources",
+            "helpCenter": "Help Center",
+            "documentation": "Documentation",
+            "faq": "FAQ",
+            "blog": "Blog",
+            "caseStudies": "Case Studies",
+            "webinars": "Webinars"
+        },
+        "company": {
+            "title": "Company",
+            "aboutUs": "About Us",
+            "careers": "Careers",
+            "press": "Press",
+            "partners": "Partners",
+            "contact": "Contact",
+            "support": "Support"
+        }
+    },
+    "newsletter": {
+        "title": "Stay Updated",
+        "description": "Get the latest updates on nutrition labeling regulations and platform features.",
+        "placeholder": "Enter your email",
+        "submitButton": "Subscribe"
+    },
+    "legal": {
+        "privacyPolicy": "Privacy Policy",
+        "termsOfService": "Terms of Service",
+        "cookiePolicy": "Cookie Policy",
+        "security": "Security"
+    },
+    "socialMedia": {
+        "facebook": "Facebook",
+        "linkedin": "LinkedIn",
+        "twitter": "Twitter",
+        "youtube": "YouTube"
+    }
+}

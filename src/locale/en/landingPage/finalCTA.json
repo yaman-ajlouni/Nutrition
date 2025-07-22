@@ -1,0 +1,41 @@
+{
+    "badge": "Ready to Get Started?",
+    "title": {
+        "part1": "Transform Your Nutrition Labeling Process",
+        "highlight": " Today"
+    },
+    "description": "Join hundreds of MENA food manufacturers using our GSO-compliant platform. Start your free trial and generate professional labels with QR codes in minutes.",
+    "buttons": {
+        "primary": "Start 14-Day Free Trial",
+        "secondary": "Schedule a Demo"
+    },
+    "trustElements": [
+        {
+            "text": "No credit card required"
+        },
+        {
+            "text": "30-day money back guarantee"
+        },
+        {
+            "text": "Expert nutrition support"
+        }
+    ],
+    "stats": [
+        {
+            "number": "200+",
+            "label": "Food Producers"
+        },
+        {
+            "number": "5K+",
+            "label": "Labels Generated"
+        },
+        {
+            "number": "GSO",
+            "label": "Compliant Standards"
+        },
+        {
+            "number": "QR",
+            "label": "Smart Codes"
+        }
+    ]
+}

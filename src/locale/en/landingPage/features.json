@@ -1,0 +1,98 @@
+{
+    "sectionBadge": "Platform Capabilities",
+    "title": {
+        "part1": "Everything You Need for",
+        "highlight": " Nutrition Labeling"
+    },
+    "description": "Complete platform for MENA region food manufacturers to create accurate, GSO-compliant nutrition labels efficiently.",
+    "tabs": {
+        "features": "Features",
+        "benefits": "Benefits"
+    },
+    "features": [
+        {
+            "title": "MENA Region Food Database",
+            "description": "Access MENA region FAO food database with auto-suggest. Add custom ingredients and save frequently used items.",
+            "highlight": "Regional Database"
+        },
+        {
+            "title": "GSO 9/2013 Compliance",
+            "description": "Generate nutrition labels meeting GSO 9/2013 requirements. Automatic validation for nutrient panels and allergen declarations.",
+            "highlight": "100% Compliant"
+        },
+        {
+            "title": "Smart QR Code Generation",
+            "description": "Auto-generate QR codes linking to product pages. Track scan analytics with premium features.",
+            "highlight": "Smart QR Codes"
+        },
+        {
+            "title": "Allergen Detection & Tags",
+            "description": "Auto-detect allergens and suggest tags like 'low fat', 'sugar free' based on database analysis.",
+            "highlight": "Auto-Detection"
+        },
+        {
+            "title": "Multilingual Support",
+            "description": "Toggle between Arabic and English interfaces. Generate compliant labels in both languages.",
+            "highlight": "Arabic/English"
+        },
+        {
+            "title": "Team Collaboration",
+            "description": "Multi-user access with role permissions. Share recipes and maintain version control.",
+            "highlight": "Team Ready"
+        }
+    ],
+    "benefits": [
+        {
+            "title": "Reduce Labeling Costs by 70%",
+            "description": "Avoid expensive lab testing for standard nutrition facts. Create GSO-compliant labels quickly and affordably — perfect for small and medium producers.",
+            "metric": "70%",
+            "unit": "Cost Reduction"
+        },
+        {
+            "title": "Save Over 8 Hours Per Product",
+            "description": "Manual calculations that took days now take minutes. Spend less time on paperwork and more time improving your products.",
+            "metric": "8+",
+            "unit": "Hours Saved"
+        },
+        {
+            "title": "Trust Every Label You Create",
+            "description": "Our system is built on validated data and aligned with GSO 9/2013 standards — ensuring your labels are accurate and regulator-ready.",
+            "metric": "99%",
+            "unit": "Accuracy"
+        },
+        {
+            "title": "Scalable for Any Team",
+            "description": "Whether you're starting small or managing large production lines, our platform supports every tier with powerful, flexible tools.",
+            "metric": "∞",
+            "unit": "From 3 Products to 300"
+        },
+        {
+            "title": "Health-Ready & Export-Ready",
+            "description": "Labels are automatically checked to meet both Syrian licensing requirements and Gulf export regulations — no guesswork, no rework.",
+            "metric": "✓",
+            "unit": "Ministry & GSO Compliant"
+        }
+    ],
+    "cta": {
+        "title": "Ready to Transform Your Nutrition Labeling?",
+        "description": "Join leading food manufacturers who have streamlined their labeling process with our platform.",
+        "buttons": {
+            "primary": "Start 14-Day Free Trial",
+            "secondary": "Request Product Demo"
+        },
+        "stats": [
+            {
+                "number": "150+",
+                "label": "Active Producers"
+            },
+            {
+                "number": "5K+",
+                "label": "Labels Generated"
+            },
+            {
+                "number": "4.8",
+                "label": "Customer Rating"
+            }
+        ]
+    }
+}

@@ -1,13 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '../../../context/LanguageContext';
 import './Features.scss';
 
 const Features = () => {
   const [activeTab, setActiveTab] = useState('features');
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+  const { t } = useLanguage();
+
+  // Animation intersection observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px 0px -50px 0px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  // Get translations for features section
+  const featuresData = t('landingPage.features.features', []);
+  const benefitsData = t('landingPage.features.benefits', []);
 
   const features = [
     {
-      title: "MENA Region Food Database",
-      description: "Access MENA region FAO food database with auto-suggest. Add custom ingredients and save frequently used items.",
+      title: featuresData[0]?.title || "MENA Region Food Database",
+      description: featuresData[0]?.description || "Access MENA region FAO food database with auto-suggest. Add custom ingredients and save frequently used items.",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
@@ -17,22 +51,22 @@ const Features = () => {
           <path d="M8 15h6" />
         </svg>
       ),
-      highlight: "Regional Database"
+      highlight: featuresData[0]?.highlight || "Regional Database"
     },
     {
-      title: "GSO 9/2013 Compliance",
-      description: "Generate nutrition labels meeting GSO 9/2013 requirements. Automatic validation for nutrient panels and allergen declarations.",
+      title: featuresData[1]?.title || "GSO 9/2013 Compliance",
+      description: featuresData[1]?.description || "Generate nutrition labels meeting GSO 9/2013 requirements. Automatic validation for nutrient panels and allergen declarations.",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4" />
           <path d="M9 11V7a3 3 0 0 1 6 0v4" />
         </svg>
       ),
-      highlight: "100% Compliant"
+      highlight: featuresData[1]?.highlight || "100% Compliant"
     },
     {
-      title: "Smart QR Code Generation",
-      description: "Auto-generate QR codes linking to product pages. Track scan analytics with premium features.",
+      title: featuresData[2]?.title || "Smart QR Code Generation",
+      description: featuresData[2]?.description || "Auto-generate QR codes linking to product pages. Track scan analytics with premium features.",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M3 7v4a1 1 0 0 0 1 1h4" />
@@ -43,11 +77,11 @@ const Features = () => {
           <path d="M14 14h1v1h-1z" />
         </svg>
       ),
-      highlight: "Smart QR Codes"
+      highlight: featuresData[2]?.highlight || "Smart QR Codes"
     },
     {
-      title: "Allergen Detection & Tags",
-      description: "Auto-detect allergens and suggest tags like 'low fat', 'sugar free' based on database analysis.",
+      title: featuresData[3]?.title || "Allergen Detection & Tags",
+      description: featuresData[3]?.description || "Auto-detect allergens and suggest tags like 'low fat', 'sugar free' based on database analysis.",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M12 2L2 7l10 5 10-5-10-5z" />
@@ -55,11 +89,11 @@ const Features = () => {
           <path d="M2 12l10 5 10-5" />
         </svg>
       ),
-      highlight: "Auto-Detection"
+      highlight: featuresData[3]?.highlight || "Auto-Detection"
     },
     {
-      title: "Multilingual Support",
-      description: "Toggle between Arabic and English interfaces. Generate compliant labels in both languages.",
+      title: featuresData[4]?.title || "Multilingual Support",
+      description: featuresData[4]?.description || "Toggle between Arabic and English interfaces. Generate compliant labels in both languages.",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M5 8l6 6" />
@@ -70,11 +104,11 @@ const Features = () => {
           <path d="M14 18h6" />
         </svg>
       ),
-      highlight: "Arabic/English"
+      highlight: featuresData[4]?.highlight || "Arabic/English"
     },
     {
-      title: "Team Collaboration",
-      description: "Multi-user access with role permissions. Share recipes and maintain version control.",
+      title: featuresData[5]?.title || "Team Collaboration",
+      description: featuresData[5]?.description || "Multi-user access with role permissions. Share recipes and maintain version control.",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -83,57 +117,62 @@ const Features = () => {
           <path d="M16 3.13a4 4 0 0 1 0 7.75" />
         </svg>
       ),
-      highlight: "Team Ready"
+      highlight: featuresData[5]?.highlight || "Team Ready"
     }
   ];
 
   const benefits = [
     {
-      title: "Reduce Labeling Costs by 70%",
-      description: "Eliminate expensive lab testing for standard nutrition facts. Meet regional standards at fraction of the cost.",
-      metric: "70%",
-      unit: "Cost Reduction"
+      title: benefitsData[0]?.title || "Reduce Labeling Costs by 70%",
+      description: benefitsData[0]?.description || "Avoid expensive lab testing for standard nutrition facts. Create GSO-compliant labels quickly and affordably — perfect for small and medium producers.",
+      metric: benefitsData[0]?.metric || "70%",
+      unit: benefitsData[0]?.unit || "Cost Reduction"
     },
     {
-      title: "Save 8+ Hours Per Product",
-      description: "Manual calculations that took days now take minutes. Focus on product development instead of paperwork.",
-      metric: "8+",
-      unit: "Hours Saved"
+      title: benefitsData[1]?.title || "Save Over 8 Hours Per Product",
+      description: benefitsData[1]?.description || "Manual calculations that took days now take minutes. Spend less time on paperwork and more time improving your products.",
+      metric: benefitsData[1]?.metric || "8+",
+      unit: benefitsData[1]?.unit || "Hours Saved"
     },
     {
-      title: "99% Calculation Accuracy",
-      description: "Algorithms validated against lab results and regional standards. Trust precise nutrition facts for compliance.",
-      metric: "99%",
-      unit: "Accuracy Rate"
+      title: benefitsData[2]?.title || "Trust Every Label You Create",
+      description: benefitsData[2]?.description || "Our system is built on validated data and aligned with GSO 9/2013 standards — ensuring your labels are accurate and regulator-ready.",
+      metric: benefitsData[2]?.metric || "99%",
+      unit: benefitsData[2]?.unit || "Accuracy"
     },
     {
-      title: "Scale Your Production",
-      description: "Whether you have 3 or 300 products, our platform scales with your business needs across all subscription tiers.",
-      metric: "∞",
-      unit: "Scalability"
+      title: benefitsData[3]?.title || "Scalable for Any Team",
+      description: benefitsData[3]?.description || "Whether you're starting small or managing large production lines, our platform supports every tier with powerful, flexible tools.",
+      metric: benefitsData[3]?.metric || "∞",
+      unit: benefitsData[3]?.unit || "From 3 Products to 300"
+    },
+    {
+      title: benefitsData[4]?.title || "Health-Ready & Export-Ready",
+      description: benefitsData[4]?.description || "Labels are automatically checked to meet both Syrian licensing requirements and Gulf export regulations — no guesswork, no rework.",
+      metric: benefitsData[4]?.metric || "✓",
+      unit: benefitsData[4]?.unit || "Ministry & GSO Compliant"
     }
   ];
 
   return (
-    <section className="features">
+    <section className="features" ref={sectionRef}>
       <div className="features-container">
         {/* Section Header */}
-        <div className="section-header">
+        <div className={`section-header ${isVisible ? 'animate-in' : ''}`}>
           <div className="section-badge">
-            <span>Platform Capabilities</span>
+            <span>{t('landingPage.features.sectionBadge', 'Platform Capabilities')}</span>
           </div>
           <h2 className="section-title">
-            Everything You Need for
-            <span className="highlight"> Nutrition Labeling</span>
+            {t('landingPage.features.title.part1', 'Everything You Need for')}
+            <span className="highlight">{t('landingPage.features.title.highlight', ' Nutrition Labeling')}</span>
           </h2>
           <p className="section-description">
-            Complete platform for MENA region food manufacturers to create
-            accurate, GSO-compliant nutrition labels efficiently.
+            {t('landingPage.features.description', 'Complete platform for MENA region food manufacturers to create accurate, GSO-compliant nutrition labels efficiently.')}
           </p>
         </div>
 
         {/* Tab Navigation */}
-        <div className="tab-navigation">
+        <div className={`tab-navigation ${isVisible ? 'animate-in' : ''}`}>
           <button
             className={`tab-button ${activeTab === 'features' ? 'active' : ''}`}
             onClick={() => setActiveTab('features')}
@@ -143,7 +182,7 @@ const Features = () => {
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
               </svg>
             </span>
-            Features
+            {t('landingPage.features.tabs.features', 'Features')}
           </button>
           <button
             className={`tab-button ${activeTab === 'benefits' ? 'active' : ''}`}
@@ -155,15 +194,19 @@ const Features = () => {
                 <circle cx="12" cy="12" r="9" />
               </svg>
             </span>
-            Benefits
+            {t('landingPage.features.tabs.benefits', 'Benefits')}
           </button>
         </div>
 
         {/* Features Tab Content */}
         {activeTab === 'features' && (
-          <div className="features-grid">
+          <div className={`features-grid ${isVisible ? 'animate-in' : ''}`}>
             {features.map((feature, index) => (
-              <div key={index} className="feature-card">
+              <div
+                key={index}
+                className="feature-card"
+                style={{ '--delay': `${index * 0.1}s` }}
+              >
                 <div className="feature-header">
                   <div className="feature-icon">
                     {feature.icon}
@@ -188,9 +231,13 @@ const Features = () => {
 
         {/* Benefits Tab Content */}
         {activeTab === 'benefits' && (
-          <div className="benefits-grid">
+          <div className={`benefits-grid ${isVisible ? 'animate-in' : ''}`}>
             {benefits.map((benefit, index) => (
-              <div key={index} className="benefit-card">
+              <div
+                key={index}
+                className="benefit-card"
+                style={{ '--delay': `${index * 0.1}s` }}
+              >
                 <div className="benefit-metric">
                   <span className="metric-number">{benefit.metric}</span>
                   <span className="metric-unit">{benefit.unit}</span>
@@ -205,18 +252,20 @@ const Features = () => {
         )}
 
         {/* Bottom CTA */}
-        <div className="features-cta">
+        <div className={`features-cta ${isVisible ? 'animate-in' : ''}`}>
           <div className="cta-content">
-            <h3 className="cta-title">Ready to Transform Your Nutrition Labeling?</h3>
+            <h3 className="cta-title">
+              {t('landingPage.features.cta.title', 'Ready to Transform Your Nutrition Labeling?')}
+            </h3>
             <p className="cta-description">
-              Join leading food manufacturers who have streamlined their labeling process with our platform.
+              {t('landingPage.features.cta.description', 'Join leading food manufacturers who have streamlined their labeling process with our platform.')}
             </p>
             <div className="cta-buttons">
               <button className="btn-primary">
-                Start 14-Day Free Trial
+                {t('landingPage.features.cta.buttons.primary', 'Start 14-Day Free Trial')}
               </button>
               <button className="btn-outline">
-                Request Product Demo
+                {t('landingPage.features.cta.buttons.secondary', 'Request Product Demo')}
               </button>
             </div>
           </div>
@@ -232,8 +281,12 @@ const Features = () => {
                 </svg>
               </div>
               <div className="stat-content">
-                <span className="stat-number">150+</span>
-                <span className="stat-label">Active Producers</span>
+                <span className="stat-number">
+                  {t('landingPage.features.cta.stats.0.number', '150+')}
+                </span>
+                <span className="stat-label">
+                  {t('landingPage.features.cta.stats.0.label', 'Active Producers')}
+                </span>
               </div>
             </div>
 
@@ -245,8 +298,12 @@ const Features = () => {
                 </svg>
               </div>
               <div className="stat-content">
-                <span className="stat-number">5K+</span>
-                <span className="stat-label">Labels Generated</span>
+                <span className="stat-number">
+                  {t('landingPage.features.cta.stats.1.number', '5K+')}
+                </span>
+                <span className="stat-label">
+                  {t('landingPage.features.cta.stats.1.label', 'Labels Generated')}
+                </span>
               </div>
             </div>
 
@@ -257,8 +314,12 @@ const Features = () => {
                 </svg>
               </div>
               <div className="stat-content">
-                <span className="stat-number">4.8</span>
-                <span className="stat-label">Customer Rating</span>
+                <span className="stat-number">
+                  {t('landingPage.features.cta.stats.2.number', '4.8')}
+                </span>
+                <span className="stat-label">
+                  {t('landingPage.features.cta.stats.2.label', 'Customer Rating')}
+                </span>
               </div>
             </div>
           </div>

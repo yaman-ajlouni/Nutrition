@@ -1,0 +1,109 @@
+{
+    "sectionBadge": "Pricing Plans",
+    "title": {
+        "part1": "Simple, Transparent Pricing",
+        "highlight": " for Every Business Size"
+    },
+    "description": "Choose the perfect plan for your food manufacturing needs. Core nutrition calculation engine with no hidden fees.",
+    "billingToggle": {
+        "monthly": "Monthly",
+        "yearly": "Yearly",
+        "savingsBadge": "Save 20%"
+    },
+    "plans": [
+        {
+            "name": "Basic",
+            "description": "Perfect for small food businesses and startups",
+            "monthlyPrice": 29,
+            "yearlyPrice": 23,
+            "popular": false,
+            "features": [
+                "Up to 3 products per month",
+                "Basic ingredient database",
+                "Standard GSO-compliant templates",
+                "Manual product entry",
+                "Basic compliance checks",
+                "PDF & PNG exports",
+                "Email support",
+                "Help center access"
+            ],
+            "buttonText": "Start Free Trial",
+            "buttonStyle": "outline",
+            "trialNote": "No credit card required"
+        },
+        {
+            "name": "Professional",
+            "description": "Ideal for growing manufacturers and mid-size producers",
+            "monthlyPrice": 89,
+            "yearlyPrice": 71,
+            "popular": true,
+            "popularBadge": "Most Popular",
+            "features": [
+                "Up to 20 products per month",
+                "Complete ingredient database",
+                "Advanced label templates",
+                "Bilingual labels (Arabic/English)",
+                "Priority review queue",
+                "Team collaboration (5 users)",
+                "QR code generation",
+                "Label validation reports",
+                "Product history dashboard",
+                "Email & phone support",
+                "Onboarding session",
+                "Food technician support"
+            ],
+            "buttonText": "Start Free Trial",
+            "buttonStyle": "primary",
+            "trialNote": "No credit card required"
+        },
+        {
+            "name": "Enterprise",
+            "description": "For large-scale manufacturers and distributors",
+            "monthlyPrice": 299,
+            "yearlyPrice": 239,
+            "popular": false,
+            "features": [
+                "Unlimited products",
+                "Bulk product submissions",
+                "Excel/CSV import capabilities",
+                "API access & integrations",
+                "Compliance dashboard",
+                "Dedicated account manager",
+                "Multi-user access (unlimited)",
+                "Custom certificates & badges",
+                "Private label support",
+                "Advanced QR analytics",
+                "Regulatory update training",
+                "24/7 priority support"
+            ],
+            "buttonText": "Contact Sales",
+            "buttonStyle": "outline"
+        }
+    ],
+    "yearlyNote": "Billed annually (${price}/year)",
+    "currency": "$",
+    "period": "/month",
+    "additionalFeatures": {
+        "title": "All Plans Include",
+        "features": [
+            "14-day free trial",
+            "GSO 9/2013 compliance",
+            "99% calculation accuracy",
+            "Data security & encryption",
+            "Mobile responsive interface",
+            "Regular database updates"
+        ]
+    },
+    "cta": {
+        "title": "Still Have Questions?",
+        "description": "Our nutrition labeling experts are here to help you choose the right plan and answer any questions about GSO compliance or implementation.",
+        "buttons": {
+            "primary": "Schedule a Demo",
+            "secondary": "Contact Sales"
+        },
+        "guarantee": {
+            "title": "30-Day Money Back Guarantee",
+            "subtitle": "Risk-free trial with full refund"
+        }
+    }
+}
